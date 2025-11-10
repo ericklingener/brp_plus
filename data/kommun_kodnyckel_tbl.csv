@@ -1,0 +1,291 @@
+Kommun_kod;Kommun_kod_S;Kommun_namn;Lan_kod;Lan_kod_S;Lan_bokstav;Lan_Namn;FA15Nr;FA15Namn;Nuts1_kod;Nuts1_namn;Nuts2_kod;Nuts2_namn;LandsbKom_3_kod;LandsbKom_3_Namn;LandsbKom_6_kod;LandsbKom_6_Namn;SCB_lan_namn;Kolada_lan_namn
+114;0114;Upplands Väsby;1;01;AB;Stockholms län;23;Stockholm;SE1;Östra Sverige;SE11;Stockholm;3;Storstadskommuner;33;Storstadskommuner;01 Stockholms län;Region Stockholm
+115;0115;Vallentuna;1;01;AB;Stockholms län;23;Stockholm;SE1;Östra Sverige;SE12;Östra Mellansverige;2;Täta kommuner;22;Täta kommuner nära en större stad;01 Stockholms län;Region Stockholm
+117;0117;Österåker;1;01;AB;Stockholms län;23;Stockholm;SE1;Östra Sverige;SE12;Östra Mellansverige;3;Storstadskommuner;33;Storstadskommuner;01 Stockholms län;Region Stockholm
+120;0120;Värmdö;1;01;AB;Stockholms län;23;Stockholm;SE1;Östra Sverige;SE12;Östra Mellansverige;2;Täta kommuner;22;Täta kommuner nära en större stad;01 Stockholms län;Region Stockholm
+123;0123;Järfälla;1;01;AB;Stockholms län;23;Stockholm;SE1;Östra Sverige;SE12;Östra Mellansverige;3;Storstadskommuner;33;Storstadskommuner;01 Stockholms län;Region Stockholm
+125;0125;Ekerö;1;01;AB;Stockholms län;23;Stockholm;SE1;Östra Sverige;SE12;Östra Mellansverige;2;Täta kommuner;22;Täta kommuner nära en större stad;01 Stockholms län;Region Stockholm
+126;0126;Huddinge;1;01;AB;Stockholms län;23;Stockholm;SE1;Östra Sverige;SE12;Östra Mellansverige;3;Storstadskommuner;33;Storstadskommuner;01 Stockholms län;Region Stockholm
+127;0127;Botkyrka;1;01;AB;Stockholms län;23;Stockholm;SE1;Östra Sverige;SE12;Östra Mellansverige;3;Storstadskommuner;33;Storstadskommuner;01 Stockholms län;Region Stockholm
+128;0128;Salem;1;01;AB;Stockholms län;23;Stockholm;SE1;Östra Sverige;SE12;Östra Mellansverige;3;Storstadskommuner;33;Storstadskommuner;01 Stockholms län;Region Stockholm
+136;0136;Haninge;1;01;AB;Stockholms län;23;Stockholm;SE1;Östra Sverige;SE12;Östra Mellansverige;3;Storstadskommuner;33;Storstadskommuner;01 Stockholms län;Region Stockholm
+138;0138;Tyresö;1;01;AB;Stockholms län;23;Stockholm;SE1;Östra Sverige;SE12;Östra Mellansverige;3;Storstadskommuner;33;Storstadskommuner;01 Stockholms län;Region Stockholm
+139;0139;Upplands-Bro;1;01;AB;Stockholms län;23;Stockholm;SE1;Östra Sverige;SE12;Östra Mellansverige;3;Storstadskommuner;33;Storstadskommuner;01 Stockholms län;Region Stockholm
+140;0140;Nykvarn;1;01;AB;Stockholms län;23;Stockholm;SE1;Östra Sverige;SE12;Östra Mellansverige;2;Täta kommuner;22;Täta kommuner nära en större stad;01 Stockholms län;Region Stockholm
+160;0160;Täby;1;01;AB;Stockholms län;23;Stockholm;SE1;Östra Sverige;SE12;Östra Mellansverige;3;Storstadskommuner;33;Storstadskommuner;01 Stockholms län;Region Stockholm
+162;0162;Danderyd;1;01;AB;Stockholms län;23;Stockholm;SE1;Östra Sverige;SE12;Östra Mellansverige;3;Storstadskommuner;33;Storstadskommuner;01 Stockholms län;Region Stockholm
+163;0163;Sollentuna;1;01;AB;Stockholms län;23;Stockholm;SE1;Östra Sverige;SE12;Östra Mellansverige;3;Storstadskommuner;33;Storstadskommuner;01 Stockholms län;Region Stockholm
+180;0180;Stockholm;1;01;AB;Stockholms län;23;Stockholm;SE1;Östra Sverige;SE12;Östra Mellansverige;3;Storstadskommuner;33;Storstadskommuner;01 Stockholms län;Region Stockholm
+181;0181;Södertälje;1;01;AB;Stockholms län;23;Stockholm;SE1;Östra Sverige;SE12;Östra Mellansverige;3;Storstadskommuner;33;Storstadskommuner;01 Stockholms län;Region Stockholm
+182;0182;Nacka;1;01;AB;Stockholms län;23;Stockholm;SE1;Östra Sverige;SE12;Östra Mellansverige;3;Storstadskommuner;33;Storstadskommuner;01 Stockholms län;Region Stockholm
+183;0183;Sundbyberg;1;01;AB;Stockholms län;23;Stockholm;SE1;Östra Sverige;SE12;Östra Mellansverige;3;Storstadskommuner;33;Storstadskommuner;01 Stockholms län;Region Stockholm
+184;0184;Solna;1;01;AB;Stockholms län;23;Stockholm;SE1;Östra Sverige;SE12;Östra Mellansverige;3;Storstadskommuner;33;Storstadskommuner;01 Stockholms län;Region Stockholm
+186;0186;Lidingö;1;01;AB;Stockholms län;23;Stockholm;SE1;Östra Sverige;SE12;Östra Mellansverige;3;Storstadskommuner;33;Storstadskommuner;01 Stockholms län;Region Stockholm
+187;0187;Vaxholm;1;01;AB;Stockholms län;23;Stockholm;SE1;Östra Sverige;SE12;Östra Mellansverige;2;Täta kommuner;22;Täta kommuner nära en större stad;01 Stockholms län;Region Stockholm
+188;0188;Norrtälje;1;01;AB;Stockholms län;23;Stockholm;SE1;Östra Sverige;SE12;Östra Mellansverige;1;Landsbygdskommuner;12;Landsbygdskommuner nära en större stad;01 Stockholms län;Region Stockholm
+191;0191;Sigtuna;1;01;AB;Stockholms län;23;Stockholm;SE1;Östra Sverige;SE12;Östra Mellansverige;3;Storstadskommuner;33;Storstadskommuner;01 Stockholms län;Region Stockholm
+192;0192;Nynäshamn;1;01;AB;Stockholms län;23;Stockholm;SE1;Östra Sverige;SE12;Östra Mellansverige;2;Täta kommuner;22;Täta kommuner nära en större stad;01 Stockholms län;Region Stockholm
+305;0305;Håbo;3;03;C;Uppsala län;23;Stockholm;SE1;Östra Sverige;SE12;Östra Mellansverige;2;Täta kommuner;22;Täta kommuner nära en större stad;03 Uppsala län;Region Uppsala
+319;0319;Älvkarleby;3;03;C;Uppsala län;36;Gävle;SE1;Östra Sverige;SE12;Östra Mellansverige;2;Täta kommuner;22;Täta kommuner nära en större stad;03 Uppsala län;Region Uppsala
+330;0330;Knivsta;3;03;C;Uppsala län;23;Stockholm;SE1;Östra Sverige;SE12;Östra Mellansverige;2;Täta kommuner;22;Täta kommuner nära en större stad;03 Uppsala län;Region Uppsala
+331;0331;Heby;3;03;C;Uppsala län;23;Stockholm;SE1;Östra Sverige;SE12;Östra Mellansverige;1;Landsbygdskommuner;12;Landsbygdskommuner nära en större stad;03 Uppsala län;Region Uppsala
+360;0360;Tierp;3;03;C;Uppsala län;23;Stockholm;SE1;Östra Sverige;SE12;Östra Mellansverige;1;Landsbygdskommuner;12;Landsbygdskommuner nära en större stad;03 Uppsala län;Region Uppsala
+380;0380;Uppsala;3;03;C;Uppsala län;23;Stockholm;SE1;Östra Sverige;SE12;Östra Mellansverige;2;Täta kommuner;22;Täta kommuner nära en större stad;03 Uppsala län;Region Uppsala
+381;0381;Enköping;3;03;C;Uppsala län;23;Stockholm;SE1;Östra Sverige;SE12;Östra Mellansverige;2;Täta kommuner;22;Täta kommuner nära en större stad;03 Uppsala län;Region Uppsala
+382;0382;Östhammar;3;03;C;Uppsala län;23;Stockholm;SE1;Östra Sverige;SE12;Östra Mellansverige;1;Landsbygdskommuner;12;Landsbygdskommuner nära en större stad;03 Uppsala län;Region Uppsala
+428;0428;Vingåker;4;04;D;Södermanlands län;22;Eskilstuna;SE1;Östra Sverige;SE12;Östra Mellansverige;1;Landsbygdskommuner;11;Landsbygdskommuner avlägset belägna;04 Södermanlands län;Region Sörmland
+461;0461;Gnesta;4;04;D;Södermanlands län;23;Stockholm;SE1;Östra Sverige;SE12;Östra Mellansverige;2;Täta kommuner;22;Täta kommuner nära en större stad;04 Södermanlands län;Region Sörmland
+480;0480;Nyköping;4;04;D;Södermanlands län;21;Nyköping-Oxelösund;SE1;Östra Sverige;SE12;Östra Mellansverige;2;Täta kommuner;22;Täta kommuner nära en större stad;04 Södermanlands län;Region Sörmland
+481;0481;Oxelösund;4;04;D;Södermanlands län;21;Nyköping-Oxelösund;SE1;Östra Sverige;SE12;Östra Mellansverige;2;Täta kommuner;22;Täta kommuner nära en större stad;04 Södermanlands län;Region Sörmland
+482;0482;Flen;4;04;D;Södermanlands län;23;Stockholm;SE1;Östra Sverige;SE12;Östra Mellansverige;1;Landsbygdskommuner;12;Landsbygdskommuner nära en större stad;04 Södermanlands län;Region Sörmland
+483;0483;Katrineholm;4;04;D;Södermanlands län;22;Eskilstuna;SE1;Östra Sverige;SE12;Östra Mellansverige;2;Täta kommuner;22;Täta kommuner nära en större stad;04 Södermanlands län;Region Sörmland
+484;0484;Eskilstuna;4;04;D;Södermanlands län;22;Eskilstuna;SE1;Östra Sverige;SE12;Östra Mellansverige;2;Täta kommuner;22;Täta kommuner nära en större stad;04 Södermanlands län;Region Sörmland
+486;0486;Strängnäs;4;04;D;Södermanlands län;23;Stockholm;SE1;Östra Sverige;SE12;Östra Mellansverige;1;Landsbygdskommuner;12;Landsbygdskommuner nära en större stad;04 Södermanlands län;Region Sörmland
+488;0488;Trosa;4;04;D;Södermanlands län;23;Stockholm;SE1;Östra Sverige;SE12;Östra Mellansverige;1;Landsbygdskommuner;12;Landsbygdskommuner nära en större stad;04 Södermanlands län;Region Sörmland
+509;0509;Ödeshög;5;05;E;Östergötlands län;19;Linköping-Norrköping;SE1;Östra Sverige;SE12;Östra Mellansverige;1;Landsbygdskommuner;12;Landsbygdskommuner nära en större stad;05 Östergötlands län;Region Östergötland
+512;0512;Ydre;5;05;E;Östergötlands län;13;Jönköping;SE1;Östra Sverige;SE12;Östra Mellansverige;1;Landsbygdskommuner;11;Landsbygdskommuner avlägset belägna;05 Östergötlands län;Region Östergötland
+513;0513;Kinda;5;05;E;Östergötlands län;19;Linköping-Norrköping;SE1;Östra Sverige;SE12;Östra Mellansverige;1;Landsbygdskommuner;12;Landsbygdskommuner nära en större stad;05 Östergötlands län;Region Östergötland
+560;0560;Boxholm;5;05;E;Östergötlands län;19;Linköping-Norrköping;SE1;Östra Sverige;SE12;Östra Mellansverige;1;Landsbygdskommuner;12;Landsbygdskommuner nära en större stad;05 Östergötlands län;Region Östergötland
+561;0561;Åtvidaberg;5;05;E;Östergötlands län;19;Linköping-Norrköping;SE1;Östra Sverige;SE12;Östra Mellansverige;2;Täta kommuner;22;Täta kommuner nära en större stad;05 Östergötlands län;Region Östergötland
+562;0562;Finspång;5;05;E;Östergötlands län;19;Linköping-Norrköping;SE1;Östra Sverige;SE12;Östra Mellansverige;2;Täta kommuner;22;Täta kommuner nära en större stad;05 Östergötlands län;Region Östergötland
+563;0563;Valdemarsvik;5;05;E;Östergötlands län;19;Linköping-Norrköping;SE1;Östra Sverige;SE12;Östra Mellansverige;1;Landsbygdskommuner;12;Landsbygdskommuner nära en större stad;05 Östergötlands län;Region Östergötland
+580;0580;Linköping;5;05;E;Östergötlands län;19;Linköping-Norrköping;SE1;Östra Sverige;SE12;Östra Mellansverige;2;Täta kommuner;22;Täta kommuner nära en större stad;05 Östergötlands län;Region Östergötland
+581;0581;Norrköping;5;05;E;Östergötlands län;19;Linköping-Norrköping;SE1;Östra Sverige;SE12;Östra Mellansverige;2;Täta kommuner;22;Täta kommuner nära en större stad;05 Östergötlands län;Region Östergötland
+582;0582;Söderköping;5;05;E;Östergötlands län;19;Linköping-Norrköping;SE1;Östra Sverige;SE12;Östra Mellansverige;2;Täta kommuner;22;Täta kommuner nära en större stad;05 Östergötlands län;Region Östergötland
+583;0583;Motala;5;05;E;Östergötlands län;19;Linköping-Norrköping;SE1;Östra Sverige;SE12;Östra Mellansverige;2;Täta kommuner;22;Täta kommuner nära en större stad;05 Östergötlands län;Region Östergötland
+584;0584;Vadstena;5;05;E;Östergötlands län;19;Linköping-Norrköping;SE1;Östra Sverige;SE12;Östra Mellansverige;2;Täta kommuner;22;Täta kommuner nära en större stad;05 Östergötlands län;Region Östergötland
+586;0586;Mjölby;5;05;E;Östergötlands län;19;Linköping-Norrköping;SE1;Östra Sverige;SE12;Östra Mellansverige;1;Landsbygdskommuner;12;Landsbygdskommuner nära en större stad;05 Östergötlands län;Region Östergötland
+604;0604;Aneby;6;06;F;Jönköpings län;13;Jönköping;SE2;Södra Sverige;SE21;Småland med öarna;1;Landsbygdskommuner;12;Landsbygdskommuner nära en större stad;06 Jönköpings län;Region Jönköpings län
+617;0617;Gnosjö;6;06;F;Jönköpings län;07;Värnamo;SE2;Södra Sverige;SE21;Småland med öarna;1;Landsbygdskommuner;11;Landsbygdskommuner avlägset belägna;06 Jönköpings län;Region Jönköpings län
+642;0642;Mullsjö;6;06;F;Jönköpings län;13;Jönköping;SE2;Södra Sverige;SE21;Småland med öarna;2;Täta kommuner;22;Täta kommuner nära en större stad;06 Jönköpings län;Region Jönköpings län
+643;0643;Habo;6;06;F;Jönköpings län;13;Jönköping;SE2;Södra Sverige;SE21;Småland med öarna;2;Täta kommuner;22;Täta kommuner nära en större stad;06 Jönköpings län;Region Jönköpings län
+662;0662;Gislaved;6;06;F;Jönköpings län;07;Värnamo;SE2;Södra Sverige;SE21;Småland med öarna;1;Landsbygdskommuner;11;Landsbygdskommuner avlägset belägna;06 Jönköpings län;Region Jönköpings län
+665;0665;Vaggeryd;6;06;F;Jönköpings län;13;Jönköping;SE2;Södra Sverige;SE21;Småland med öarna;1;Landsbygdskommuner;12;Landsbygdskommuner nära en större stad;06 Jönköpings län;Region Jönköpings län
+680;0680;Jönköping;6;06;F;Jönköpings län;13;Jönköping;SE2;Södra Sverige;SE21;Småland med öarna;2;Täta kommuner;22;Täta kommuner nära en större stad;06 Jönköpings län;Region Jönköpings län
+682;0682;Nässjö;6;06;F;Jönköpings län;13;Jönköping;SE2;Södra Sverige;SE21;Småland med öarna;2;Täta kommuner;22;Täta kommuner nära en större stad;06 Jönköpings län;Region Jönköpings län
+683;0683;Värnamo;6;06;F;Jönköpings län;07;Värnamo;SE2;Södra Sverige;SE21;Småland med öarna;2;Täta kommuner;22;Täta kommuner nära en större stad;06 Jönköpings län;Region Jönköpings län
+684;0684;Sävsjö;6;06;F;Jönköpings län;13;Jönköping;SE2;Södra Sverige;SE21;Småland med öarna;1;Landsbygdskommuner;11;Landsbygdskommuner avlägset belägna;06 Jönköpings län;Region Jönköpings län
+685;0685;Vetlanda;6;06;F;Jönköpings län;13;Jönköping;SE2;Södra Sverige;SE21;Småland med öarna;2;Täta kommuner;21;Täta kommuner avlägset belägna;06 Jönköpings län;Region Jönköpings län
+686;0686;Eksjö;6;06;F;Jönköpings län;13;Jönköping;SE2;Södra Sverige;SE21;Småland med öarna;2;Täta kommuner;21;Täta kommuner avlägset belägna;06 Jönköpings län;Region Jönköpings län
+687;0687;Tranås;6;06;F;Jönköpings län;13;Jönköping;SE2;Södra Sverige;SE21;Småland med öarna;2;Täta kommuner;21;Täta kommuner avlägset belägna;06 Jönköpings län;Region Jönköpings län
+760;0760;Uppvidinge;7;07;G;Kronobergs län;08;Växjö;SE2;Södra Sverige;SE21;Småland med öarna;1;Landsbygdskommuner;12;Landsbygdskommuner nära en större stad;07 Kronobergs län;Region Kronoberg
+761;0761;Lessebo;7;07;G;Kronobergs län;08;Växjö;SE2;Södra Sverige;SE21;Småland med öarna;1;Landsbygdskommuner;12;Landsbygdskommuner nära en större stad;07 Kronobergs län;Region Kronoberg
+763;0763;Tingsryd;7;07;G;Kronobergs län;08;Växjö;SE2;Södra Sverige;SE21;Småland med öarna;1;Landsbygdskommuner;12;Landsbygdskommuner nära en större stad;07 Kronobergs län;Region Kronoberg
+764;0764;Alvesta;7;07;G;Kronobergs län;08;Växjö;SE2;Södra Sverige;SE21;Småland med öarna;1;Landsbygdskommuner;12;Landsbygdskommuner nära en större stad;07 Kronobergs län;Region Kronoberg
+765;0765;Älmhult;7;07;G;Kronobergs län;04;Älmhult-Osby;SE2;Södra Sverige;SE21;Småland med öarna;2;Täta kommuner;22;Täta kommuner nära en större stad;07 Kronobergs län;Region Kronoberg
+767;0767;Markaryd;7;07;G;Kronobergs län;05;Ljungby;SE2;Södra Sverige;SE21;Småland med öarna;1;Landsbygdskommuner;12;Landsbygdskommuner nära en större stad;07 Kronobergs län;Region Kronoberg
+780;0780;Växjö;7;07;G;Kronobergs län;08;Växjö;SE2;Södra Sverige;SE21;Småland med öarna;2;Täta kommuner;22;Täta kommuner nära en större stad;07 Kronobergs län;Region Kronoberg
+781;0781;Ljungby;7;07;G;Kronobergs län;05;Ljungby;SE2;Södra Sverige;SE21;Småland med öarna;2;Täta kommuner;22;Täta kommuner nära en större stad;07 Kronobergs län;Region Kronoberg
+821;0821;Högsby;8;08;H;Kalmar län;10;Oskarshamn;SE2;Södra Sverige;SE21;Småland med öarna;1;Landsbygdskommuner;11;Landsbygdskommuner avlägset belägna;08 Kalmar län;Region Kalmar
+834;0834;Torsås;8;08;H;Kalmar län;09;Kalmar;SE2;Södra Sverige;SE21;Småland med öarna;1;Landsbygdskommuner;12;Landsbygdskommuner nära en större stad;08 Kalmar län;Region Kalmar
+840;0840;Mörbylånga;8;08;H;Kalmar län;09;Kalmar;SE2;Södra Sverige;SE21;Småland med öarna;1;Landsbygdskommuner;12;Landsbygdskommuner nära en större stad;08 Kalmar län;Region Kalmar
+860;0860;Hultsfred;8;08;H;Kalmar län;12;Vimmerby;SE2;Södra Sverige;SE21;Småland med öarna;1;Landsbygdskommuner;11;Landsbygdskommuner avlägset belägna;08 Kalmar län;Region Kalmar
+861;0861;Mönsterås;8;08;H;Kalmar län;09;Kalmar;SE2;Södra Sverige;SE21;Småland med öarna;1;Landsbygdskommuner;12;Landsbygdskommuner nära en större stad;08 Kalmar län;Region Kalmar
+862;0862;Emmaboda;8;08;H;Kalmar län;09;Kalmar;SE2;Södra Sverige;SE21;Småland med öarna;1;Landsbygdskommuner;12;Landsbygdskommuner nära en större stad;08 Kalmar län;Region Kalmar
+880;0880;Kalmar;8;08;H;Kalmar län;09;Kalmar;SE2;Södra Sverige;SE21;Småland med öarna;2;Täta kommuner;22;Täta kommuner nära en större stad;08 Kalmar län;Region Kalmar
+881;0881;Nybro;8;08;H;Kalmar län;09;Kalmar;SE2;Södra Sverige;SE21;Småland med öarna;2;Täta kommuner;22;Täta kommuner nära en större stad;08 Kalmar län;Region Kalmar
+882;0882;Oskarshamn;8;08;H;Kalmar län;10;Oskarshamn;SE2;Södra Sverige;SE21;Småland med öarna;2;Täta kommuner;21;Täta kommuner avlägset belägna;08 Kalmar län;Region Kalmar
+883;0883;Västervik;8;08;H;Kalmar län;11;Västervik;SE2;Södra Sverige;SE21;Småland med öarna;2;Täta kommuner;21;Täta kommuner avlägset belägna;08 Kalmar län;Region Kalmar
+884;0884;Vimmerby;8;08;H;Kalmar län;12;Vimmerby;SE2;Södra Sverige;SE21;Småland med öarna;2;Täta kommuner;21;Täta kommuner avlägset belägna;08 Kalmar län;Region Kalmar
+885;0885;Borgholm;8;08;H;Kalmar län;09;Kalmar;SE2;Södra Sverige;SE21;Småland med öarna;1;Landsbygdskommuner;12;Landsbygdskommuner nära en större stad;08 Kalmar län;Region Kalmar
+980;0980;Gotland;9;09;I;Gotlands län;20;Gotland;SE2;Södra Sverige;SE21;Småland med öarna;1;Landsbygdskommuner;11;Landsbygdskommuner avlägset belägna;09 Gotlands län;Region Gotland
+1060;1060;Olofström;10;10;J;Blekinge län;03;Karlskrona;SE2;Södra Sverige;SE22;Sydsverige;2;Täta kommuner;22;Täta kommuner nära en större stad;10 Blekinge län;Region Blekinge
+1080;1080;Karlskrona;10;10;J;Blekinge län;03;Karlskrona;SE2;Södra Sverige;SE22;Sydsverige;2;Täta kommuner;21;Täta kommuner avlägset belägna;10 Blekinge län;Region Blekinge
+1081;1081;Ronneby;10;10;J;Blekinge län;03;Karlskrona;SE2;Södra Sverige;SE22;Sydsverige;1;Landsbygdskommuner;11;Landsbygdskommuner avlägset belägna;10 Blekinge län;Region Blekinge
+1082;1082;Karlshamn;10;10;J;Blekinge län;03;Karlskrona;SE2;Södra Sverige;SE22;Sydsverige;2;Täta kommuner;22;Täta kommuner nära en större stad;10 Blekinge län;Region Blekinge
+1083;1083;Sölvesborg;10;10;J;Blekinge län;02;Kristianstad-Hässleholm;SE2;Södra Sverige;SE22;Sydsverige;1;Landsbygdskommuner;12;Landsbygdskommuner nära en större stad;10 Blekinge län;Region Blekinge
+1214;1214;Svalöv;12;12;M;Skåne län;01;Malmö-Lund;SE2;Södra Sverige;SE22;Sydsverige;1;Landsbygdskommuner;12;Landsbygdskommuner nära en större stad;12 Skåne län;Region Skåne
+1230;1230;Staffanstorp;12;12;M;Skåne län;01;Malmö-Lund;SE2;Södra Sverige;SE22;Sydsverige;3;Storstadskommuner;33;Storstadskommuner;12 Skåne län;Region Skåne
+1231;1231;Burlöv;12;12;M;Skåne län;01;Malmö-Lund;SE2;Södra Sverige;SE22;Sydsverige;3;Storstadskommuner;33;Storstadskommuner;12 Skåne län;Region Skåne
+1233;1233;Vellinge;12;12;M;Skåne län;01;Malmö-Lund;SE2;Södra Sverige;SE22;Sydsverige;3;Storstadskommuner;33;Storstadskommuner;12 Skåne län;Region Skåne
+1256;1256;Östra Göinge;12;12;M;Skåne län;02;Kristianstad-Hässleholm;SE2;Södra Sverige;SE22;Sydsverige;1;Landsbygdskommuner;12;Landsbygdskommuner nära en större stad;12 Skåne län;Region Skåne
+1257;1257;Örkelljunga;12;12;M;Skåne län;01;Malmö-Lund;SE2;Södra Sverige;SE22;Sydsverige;1;Landsbygdskommuner;12;Landsbygdskommuner nära en större stad;12 Skåne län;Region Skåne
+1260;1260;Bjuv;12;12;M;Skåne län;01;Malmö-Lund;SE2;Södra Sverige;SE22;Sydsverige;1;Landsbygdskommuner;12;Landsbygdskommuner nära en större stad;12 Skåne län;Region Skåne
+1261;1261;Kävlinge;12;12;M;Skåne län;01;Malmö-Lund;SE2;Södra Sverige;SE22;Sydsverige;2;Täta kommuner;22;Täta kommuner nära en större stad;12 Skåne län;Region Skåne
+1262;1262;Lomma;12;12;M;Skåne län;01;Malmö-Lund;SE2;Södra Sverige;SE22;Sydsverige;3;Storstadskommuner;33;Storstadskommuner;12 Skåne län;Region Skåne
+1263;1263;Svedala;12;12;M;Skåne län;01;Malmö-Lund;SE2;Södra Sverige;SE22;Sydsverige;2;Täta kommuner;22;Täta kommuner nära en större stad;12 Skåne län;Region Skåne
+1264;1264;Skurup;12;12;M;Skåne län;01;Malmö-Lund;SE2;Södra Sverige;SE22;Sydsverige;2;Täta kommuner;22;Täta kommuner nära en större stad;12 Skåne län;Region Skåne
+1265;1265;Sjöbo;12;12;M;Skåne län;01;Malmö-Lund;SE2;Södra Sverige;SE22;Sydsverige;1;Landsbygdskommuner;12;Landsbygdskommuner nära en större stad;12 Skåne län;Region Skåne
+1266;1266;Hörby;12;12;M;Skåne län;01;Malmö-Lund;SE2;Södra Sverige;SE22;Sydsverige;2;Täta kommuner;22;Täta kommuner nära en större stad;12 Skåne län;Region Skåne
+1267;1267;Höör;12;12;M;Skåne län;01;Malmö-Lund;SE2;Södra Sverige;SE22;Sydsverige;2;Täta kommuner;22;Täta kommuner nära en större stad;12 Skåne län;Region Skåne
+1270;1270;Tomelilla;12;12;M;Skåne län;01;Malmö-Lund;SE2;Södra Sverige;SE22;Sydsverige;2;Täta kommuner;22;Täta kommuner nära en större stad;12 Skåne län;Region Skåne
+1272;1272;Bromölla;12;12;M;Skåne län;02;Kristianstad-Hässleholm;SE2;Södra Sverige;SE22;Sydsverige;2;Täta kommuner;22;Täta kommuner nära en större stad;12 Skåne län;Region Skåne
+1273;1273;Osby;12;12;M;Skåne län;04;Älmhult-Osby;SE2;Södra Sverige;SE22;Sydsverige;2;Täta kommuner;22;Täta kommuner nära en större stad;12 Skåne län;Region Skåne
+1275;1275;Perstorp;12;12;M;Skåne län;01;Malmö-Lund;SE2;Södra Sverige;SE22;Sydsverige;2;Täta kommuner;22;Täta kommuner nära en större stad;12 Skåne län;Region Skåne
+1276;1276;Klippan;12;12;M;Skåne län;01;Malmö-Lund;SE2;Södra Sverige;SE22;Sydsverige;2;Täta kommuner;22;Täta kommuner nära en större stad;12 Skåne län;Region Skåne
+1277;1277;Åstorp;12;12;M;Skåne län;01;Malmö-Lund;SE2;Södra Sverige;SE22;Sydsverige;2;Täta kommuner;22;Täta kommuner nära en större stad;12 Skåne län;Region Skåne
+1278;1278;Båstad;12;12;M;Skåne län;01;Malmö-Lund;SE2;Södra Sverige;SE22;Sydsverige;1;Landsbygdskommuner;12;Landsbygdskommuner nära en större stad;12 Skåne län;Region Skåne
+1280;1280;Malmö;12;12;M;Skåne län;01;Malmö-Lund;SE2;Södra Sverige;SE22;Sydsverige;3;Storstadskommuner;33;Storstadskommuner;12 Skåne län;Region Skåne
+1281;1281;Lund;12;12;M;Skåne län;01;Malmö-Lund;SE2;Södra Sverige;SE22;Sydsverige;3;Storstadskommuner;33;Storstadskommuner;12 Skåne län;Region Skåne
+1282;1282;Landskrona;12;12;M;Skåne län;01;Malmö-Lund;SE2;Södra Sverige;SE22;Sydsverige;2;Täta kommuner;22;Täta kommuner nära en större stad;12 Skåne län;Region Skåne
+1283;1283;Helsingborg;12;12;M;Skåne län;01;Malmö-Lund;SE2;Södra Sverige;SE22;Sydsverige;2;Täta kommuner;22;Täta kommuner nära en större stad;12 Skåne län;Region Skåne
+1284;1284;Höganäs;12;12;M;Skåne län;01;Malmö-Lund;SE2;Södra Sverige;SE22;Sydsverige;1;Landsbygdskommuner;12;Landsbygdskommuner nära en större stad;12 Skåne län;Region Skåne
+1285;1285;Eslöv;12;12;M;Skåne län;01;Malmö-Lund;SE2;Södra Sverige;SE22;Sydsverige;2;Täta kommuner;22;Täta kommuner nära en större stad;12 Skåne län;Region Skåne
+1286;1286;Ystad;12;12;M;Skåne län;01;Malmö-Lund;SE2;Södra Sverige;SE22;Sydsverige;2;Täta kommuner;22;Täta kommuner nära en större stad;12 Skåne län;Region Skåne
+1287;1287;Trelleborg;12;12;M;Skåne län;01;Malmö-Lund;SE2;Södra Sverige;SE22;Sydsverige;2;Täta kommuner;22;Täta kommuner nära en större stad;12 Skåne län;Region Skåne
+1290;1290;Kristianstad;12;12;M;Skåne län;02;Kristianstad-Hässleholm;SE2;Södra Sverige;SE22;Sydsverige;2;Täta kommuner;22;Täta kommuner nära en större stad;12 Skåne län;Region Skåne
+1291;1291;Simrishamn;12;12;M;Skåne län;01;Malmö-Lund;SE2;Södra Sverige;SE22;Sydsverige;1;Landsbygdskommuner;11;Landsbygdskommuner avlägset belägna;12 Skåne län;Region Skåne
+1292;1292;Ängelholm;12;12;M;Skåne län;01;Malmö-Lund;SE2;Södra Sverige;SE22;Sydsverige;2;Täta kommuner;22;Täta kommuner nära en större stad;12 Skåne län;Region Skåne
+1293;1293;Hässleholm;12;12;M;Skåne län;02;Kristianstad-Hässleholm;SE2;Södra Sverige;SE22;Sydsverige;1;Landsbygdskommuner;12;Landsbygdskommuner nära en större stad;12 Skåne län;Region Skåne
+1315;1315;Hylte;13;13;N;Hallands län;06;Halmstad;SE2;Södra Sverige;SE23;Västsverige;1;Landsbygdskommuner;12;Landsbygdskommuner nära en större stad;13 Hallands län;Region Halland
+1380;1380;Halmstad;13;13;N;Hallands län;06;Halmstad;SE2;Södra Sverige;SE23;Västsverige;2;Täta kommuner;22;Täta kommuner nära en större stad;13 Hallands län;Region Halland
+1381;1381;Laholm;13;13;N;Hallands län;06;Halmstad;SE2;Södra Sverige;SE23;Västsverige;1;Landsbygdskommuner;12;Landsbygdskommuner nära en större stad;13 Hallands län;Region Halland
+1382;1382;Falkenberg;13;13;N;Hallands län;15;Göteborg;SE2;Södra Sverige;SE23;Västsverige;2;Täta kommuner;22;Täta kommuner nära en större stad;13 Hallands län;Region Halland
+1383;1383;Varberg;13;13;N;Hallands län;15;Göteborg;SE2;Södra Sverige;SE23;Västsverige;2;Täta kommuner;22;Täta kommuner nära en större stad;13 Hallands län;Region Halland
+1384;1384;Kungsbacka;13;13;N;Hallands län;15;Göteborg;SE2;Södra Sverige;SE23;Västsverige;2;Täta kommuner;22;Täta kommuner nära en större stad;13 Hallands län;Region Halland
+1401;1401;Härryda;14;14;O;Västra Götalands län;15;Göteborg;SE2;Södra Sverige;SE23;Västsverige;2;Täta kommuner;22;Täta kommuner nära en större stad;14 Västra Götalands län;Västra Götalandsregionen
+1402;1402;Partille;14;14;O;Västra Götalands län;15;Göteborg;SE2;Södra Sverige;SE23;Västsverige;3;Storstadskommuner;33;Storstadskommuner;14 Västra Götalands län;Västra Götalandsregionen
+1407;1407;Öckerö;14;14;O;Västra Götalands län;15;Göteborg;SE2;Södra Sverige;SE23;Västsverige;2;Täta kommuner;21;Täta kommuner avlägset belägna;14 Västra Götalands län;Västra Götalandsregionen
+1415;1415;Stenungsund;14;14;O;Västra Götalands län;15;Göteborg;SE2;Södra Sverige;SE23;Västsverige;2;Täta kommuner;22;Täta kommuner nära en större stad;14 Västra Götalands län;Västra Götalandsregionen
+1419;1419;Tjörn;14;14;O;Västra Götalands län;15;Göteborg;SE2;Södra Sverige;SE23;Västsverige;1;Landsbygdskommuner;12;Landsbygdskommuner nära en större stad;14 Västra Götalands län;Västra Götalandsregionen
+1421;1421;Orust;14;14;O;Västra Götalands län;15;Göteborg;SE2;Södra Sverige;SE23;Västsverige;1;Landsbygdskommuner;12;Landsbygdskommuner nära en större stad;14 Västra Götalands län;Västra Götalandsregionen
+1427;1427;Sotenäs;14;14;O;Västra Götalands län;16;Trollhättan-Vänersborg;SE2;Södra Sverige;SE23;Västsverige;1;Landsbygdskommuner;11;Landsbygdskommuner avlägset belägna;14 Västra Götalands län;Västra Götalandsregionen
+1430;1430;Munkedal;14;14;O;Västra Götalands län;16;Trollhättan-Vänersborg;SE2;Södra Sverige;SE23;Västsverige;1;Landsbygdskommuner;12;Landsbygdskommuner nära en större stad;14 Västra Götalands län;Västra Götalandsregionen
+1435;1435;Tanum;14;14;O;Västra Götalands län;28;Västlandet;SE2;Södra Sverige;SE23;Västsverige;1;Landsbygdskommuner;11;Landsbygdskommuner avlägset belägna;14 Västra Götalands län;Västra Götalandsregionen
+1438;1438;Dals-Ed;14;14;O;Västra Götalands län;28;Västlandet;SE2;Södra Sverige;SE23;Västsverige;1;Landsbygdskommuner;11;Landsbygdskommuner avlägset belägna;14 Västra Götalands län;Västra Götalandsregionen
+1439;1439;Färgelanda;14;14;O;Västra Götalands län;16;Trollhättan-Vänersborg;SE2;Södra Sverige;SE23;Västsverige;1;Landsbygdskommuner;12;Landsbygdskommuner nära en större stad;14 Västra Götalands län;Västra Götalandsregionen
+1440;1440;Ale;14;14;O;Västra Götalands län;15;Göteborg;SE2;Södra Sverige;SE23;Västsverige;1;Landsbygdskommuner;12;Landsbygdskommuner nära en större stad;14 Västra Götalands län;Västra Götalandsregionen
+1441;1441;Lerum;14;14;O;Västra Götalands län;15;Göteborg;SE2;Södra Sverige;SE23;Västsverige;3;Storstadskommuner;33;Storstadskommuner;14 Västra Götalands län;Västra Götalandsregionen
+1442;1442;Vårgårda;14;14;O;Västra Götalands län;15;Göteborg;SE2;Södra Sverige;SE23;Västsverige;1;Landsbygdskommuner;12;Landsbygdskommuner nära en större stad;14 Västra Götalands län;Västra Götalandsregionen
+1443;1443;Bollebygd;14;14;O;Västra Götalands län;15;Göteborg;SE2;Södra Sverige;SE23;Västsverige;1;Landsbygdskommuner;12;Landsbygdskommuner nära en större stad;14 Västra Götalands län;Västra Götalandsregionen
+1444;1444;Grästorp;14;14;O;Västra Götalands län;16;Trollhättan-Vänersborg;SE2;Södra Sverige;SE23;Västsverige;1;Landsbygdskommuner;12;Landsbygdskommuner nära en större stad;14 Västra Götalands län;Västra Götalandsregionen
+1445;1445;Essunga;14;14;O;Västra Götalands län;17;Lidköping-Götene;SE2;Södra Sverige;SE23;Västsverige;1;Landsbygdskommuner;12;Landsbygdskommuner nära en större stad;14 Västra Götalands län;Västra Götalandsregionen
+1446;1446;Karlsborg;14;14;O;Västra Götalands län;18;Skövde-Skara;SE2;Södra Sverige;SE23;Västsverige;1;Landsbygdskommuner;11;Landsbygdskommuner avlägset belägna;14 Västra Götalands län;Västra Götalandsregionen
+1447;1447;Gullspång;14;14;O;Västra Götalands län;18;Skövde-Skara;SE2;Södra Sverige;SE23;Västsverige;1;Landsbygdskommuner;11;Landsbygdskommuner avlägset belägna;14 Västra Götalands län;Västra Götalandsregionen
+1452;1452;Tranemo;14;14;O;Västra Götalands län;14;Borås;SE2;Södra Sverige;SE23;Västsverige;1;Landsbygdskommuner;12;Landsbygdskommuner nära en större stad;14 Västra Götalands län;Västra Götalandsregionen
+1460;1460;Bengtsfors;14;14;O;Västra Götalands län;28;Västlandet;SE2;Södra Sverige;SE23;Västsverige;1;Landsbygdskommuner;11;Landsbygdskommuner avlägset belägna;14 Västra Götalands län;Västra Götalandsregionen
+1461;1461;Mellerud;14;14;O;Västra Götalands län;16;Trollhättan-Vänersborg;SE2;Södra Sverige;SE23;Västsverige;1;Landsbygdskommuner;12;Landsbygdskommuner nära en större stad;14 Västra Götalands län;Västra Götalandsregionen
+1462;1462;Lilla Edet;14;14;O;Västra Götalands län;15;Göteborg;SE2;Södra Sverige;SE23;Västsverige;1;Landsbygdskommuner;12;Landsbygdskommuner nära en större stad;14 Västra Götalands län;Västra Götalandsregionen
+1463;1463;Mark;14;14;O;Västra Götalands län;15;Göteborg;SE2;Södra Sverige;SE23;Västsverige;1;Landsbygdskommuner;12;Landsbygdskommuner nära en större stad;14 Västra Götalands län;Västra Götalandsregionen
+1465;1465;Svenljunga;14;14;O;Västra Götalands län;14;Borås;SE2;Södra Sverige;SE23;Västsverige;1;Landsbygdskommuner;12;Landsbygdskommuner nära en större stad;14 Västra Götalands län;Västra Götalandsregionen
+1466;1466;Herrljunga;14;14;O;Västra Götalands län;15;Göteborg;SE2;Södra Sverige;SE23;Västsverige;1;Landsbygdskommuner;12;Landsbygdskommuner nära en större stad;14 Västra Götalands län;Västra Götalandsregionen
+1470;1470;Vara;14;14;O;Västra Götalands län;17;Lidköping-Götene;SE2;Södra Sverige;SE23;Västsverige;1;Landsbygdskommuner;12;Landsbygdskommuner nära en större stad;14 Västra Götalands län;Västra Götalandsregionen
+1471;1471;Götene;14;14;O;Västra Götalands län;17;Lidköping-Götene;SE2;Södra Sverige;SE23;Västsverige;1;Landsbygdskommuner;11;Landsbygdskommuner avlägset belägna;14 Västra Götalands län;Västra Götalandsregionen
+1472;1472;Tibro;14;14;O;Västra Götalands län;18;Skövde-Skara;SE2;Södra Sverige;SE23;Västsverige;2;Täta kommuner;21;Täta kommuner avlägset belägna;14 Västra Götalands län;Västra Götalandsregionen
+1473;1473;Töreboda;14;14;O;Västra Götalands län;18;Skövde-Skara;SE2;Södra Sverige;SE23;Västsverige;1;Landsbygdskommuner;11;Landsbygdskommuner avlägset belägna;14 Västra Götalands län;Västra Götalandsregionen
+1480;1480;Göteborg;14;14;O;Västra Götalands län;15;Göteborg;SE2;Södra Sverige;SE23;Västsverige;3;Storstadskommuner;33;Storstadskommuner;14 Västra Götalands län;Västra Götalandsregionen
+1481;1481;Mölndal;14;14;O;Västra Götalands län;15;Göteborg;SE2;Södra Sverige;SE23;Västsverige;3;Storstadskommuner;33;Storstadskommuner;14 Västra Götalands län;Västra Götalandsregionen
+1482;1482;Kungälv;14;14;O;Västra Götalands län;15;Göteborg;SE2;Södra Sverige;SE23;Västsverige;2;Täta kommuner;22;Täta kommuner nära en större stad;14 Västra Götalands län;Västra Götalandsregionen
+1484;1484;Lysekil;14;14;O;Västra Götalands län;16;Trollhättan-Vänersborg;SE2;Södra Sverige;SE23;Västsverige;2;Täta kommuner;21;Täta kommuner avlägset belägna;14 Västra Götalands län;Västra Götalandsregionen
+1485;1485;Uddevalla;14;14;O;Västra Götalands län;16;Trollhättan-Vänersborg;SE2;Södra Sverige;SE23;Västsverige;2;Täta kommuner;22;Täta kommuner nära en större stad;14 Västra Götalands län;Västra Götalandsregionen
+1486;1486;Strömstad;14;14;O;Västra Götalands län;28;Västlandet;SE2;Södra Sverige;SE23;Västsverige;2;Täta kommuner;21;Täta kommuner avlägset belägna;14 Västra Götalands län;Västra Götalandsregionen
+1487;1487;Vänersborg;14;14;O;Västra Götalands län;16;Trollhättan-Vänersborg;SE2;Södra Sverige;SE23;Västsverige;2;Täta kommuner;22;Täta kommuner nära en större stad;14 Västra Götalands län;Västra Götalandsregionen
+1488;1488;Trollhättan;14;14;O;Västra Götalands län;16;Trollhättan-Vänersborg;SE2;Södra Sverige;SE23;Västsverige;2;Täta kommuner;22;Täta kommuner nära en större stad;14 Västra Götalands län;Västra Götalandsregionen
+1489;1489;Alingsås;14;14;O;Västra Götalands län;15;Göteborg;SE2;Södra Sverige;SE23;Västsverige;2;Täta kommuner;22;Täta kommuner nära en större stad;14 Västra Götalands län;Västra Götalandsregionen
+1490;1490;Borås;14;14;O;Västra Götalands län;14;Borås;SE2;Södra Sverige;SE23;Västsverige;2;Täta kommuner;22;Täta kommuner nära en större stad;14 Västra Götalands län;Västra Götalandsregionen
+1491;1491;Ulricehamn;14;14;O;Västra Götalands län;14;Borås;SE2;Södra Sverige;SE23;Västsverige;1;Landsbygdskommuner;12;Landsbygdskommuner nära en större stad;14 Västra Götalands län;Västra Götalandsregionen
+1492;1492;Åmål;14;14;O;Västra Götalands län;27;Karlstad;SE2;Södra Sverige;SE23;Västsverige;2;Täta kommuner;21;Täta kommuner avlägset belägna;14 Västra Götalands län;Västra Götalandsregionen
+1493;1493;Mariestad;14;14;O;Västra Götalands län;18;Skövde-Skara;SE2;Södra Sverige;SE23;Västsverige;2;Täta kommuner;21;Täta kommuner avlägset belägna;14 Västra Götalands län;Västra Götalandsregionen
+1494;1494;Lidköping;14;14;O;Västra Götalands län;17;Lidköping-Götene;SE2;Södra Sverige;SE23;Västsverige;2;Täta kommuner;22;Täta kommuner nära en större stad;14 Västra Götalands län;Västra Götalandsregionen
+1495;1495;Skara;14;14;O;Västra Götalands län;18;Skövde-Skara;SE2;Södra Sverige;SE23;Västsverige;2;Täta kommuner;21;Täta kommuner avlägset belägna;14 Västra Götalands län;Västra Götalandsregionen
+1496;1496;Skövde;14;14;O;Västra Götalands län;18;Skövde-Skara;SE2;Södra Sverige;SE23;Västsverige;2;Täta kommuner;21;Täta kommuner avlägset belägna;14 Västra Götalands län;Västra Götalandsregionen
+1497;1497;Hjo;14;14;O;Västra Götalands län;18;Skövde-Skara;SE2;Södra Sverige;SE23;Västsverige;2;Täta kommuner;21;Täta kommuner avlägset belägna;14 Västra Götalands län;Västra Götalandsregionen
+1498;1498;Tidaholm;14;14;O;Västra Götalands län;18;Skövde-Skara;SE2;Södra Sverige;SE23;Västsverige;2;Täta kommuner;21;Täta kommuner avlägset belägna;14 Västra Götalands län;Västra Götalandsregionen
+1499;1499;Falköping;14;14;O;Västra Götalands län;18;Skövde-Skara;SE2;Södra Sverige;SE23;Västsverige;2;Täta kommuner;21;Täta kommuner avlägset belägna;14 Västra Götalands län;Västra Götalandsregionen
+1715;1715;Kil;17;17;S;Värmlands län;27;Karlstad;SE3;Norra Sverige;SE31;Norra Mellansverige;2;Täta kommuner;22;Täta kommuner nära en större stad;17 Värmlands län;Region Värmland
+1730;1730;Eda;17;17;S;Värmlands län;28;Västlandet;SE3;Norra Sverige;SE31;Norra Mellansverige;1;Landsbygdskommuner;11;Landsbygdskommuner avlägset belägna;17 Värmlands län;Region Värmland
+1737;1737;Torsby;17;17;S;Värmlands län;29;Torsby;SE3;Norra Sverige;SE31;Norra Mellansverige;1;Landsbygdskommuner;11;Landsbygdskommuner avlägset belägna;17 Värmlands län;Region Värmland
+1760;1760;Storfors;17;17;S;Värmlands län;27;Karlstad;SE3;Norra Sverige;SE31;Norra Mellansverige;1;Landsbygdskommuner;12;Landsbygdskommuner nära en större stad;17 Värmlands län;Region Värmland
+1761;1761;Hammarö;17;17;S;Värmlands län;27;Karlstad;SE3;Norra Sverige;SE31;Norra Mellansverige;2;Täta kommuner;22;Täta kommuner nära en större stad;17 Värmlands län;Region Värmland
+1762;1762;Munkfors;17;17;S;Värmlands län;27;Karlstad;SE3;Norra Sverige;SE31;Norra Mellansverige;1;Landsbygdskommuner;11;Landsbygdskommuner avlägset belägna;17 Värmlands län;Region Värmland
+1763;1763;Forshaga;17;17;S;Värmlands län;27;Karlstad;SE3;Norra Sverige;SE31;Norra Mellansverige;2;Täta kommuner;22;Täta kommuner nära en större stad;17 Värmlands län;Region Värmland
+1764;1764;Grums;17;17;S;Värmlands län;27;Karlstad;SE3;Norra Sverige;SE31;Norra Mellansverige;2;Täta kommuner;22;Täta kommuner nära en större stad;17 Värmlands län;Region Värmland
+1765;1765;Årjäng;17;17;S;Värmlands län;28;Västlandet;SE3;Norra Sverige;SE31;Norra Mellansverige;1;Landsbygdskommuner;11;Landsbygdskommuner avlägset belägna;17 Värmlands län;Region Värmland
+1766;1766;Sunne;17;17;S;Värmlands län;27;Karlstad;SE3;Norra Sverige;SE31;Norra Mellansverige;1;Landsbygdskommuner;11;Landsbygdskommuner avlägset belägna;17 Värmlands län;Region Värmland
+1780;1780;Karlstad;17;17;S;Värmlands län;27;Karlstad;SE3;Norra Sverige;SE31;Norra Mellansverige;2;Täta kommuner;22;Täta kommuner nära en större stad;17 Värmlands län;Region Värmland
+1781;1781;Kristinehamn;17;17;S;Värmlands län;27;Karlstad;SE3;Norra Sverige;SE31;Norra Mellansverige;2;Täta kommuner;22;Täta kommuner nära en större stad;17 Värmlands län;Region Värmland
+1782;1782;Filipstad;17;17;S;Värmlands län;27;Karlstad;SE3;Norra Sverige;SE31;Norra Mellansverige;2;Täta kommuner;22;Täta kommuner nära en större stad;17 Värmlands län;Region Värmland
+1783;1783;Hagfors;17;17;S;Värmlands län;27;Karlstad;SE3;Norra Sverige;SE31;Norra Mellansverige;1;Landsbygdskommuner;11;Landsbygdskommuner avlägset belägna;17 Värmlands län;Region Värmland
+1784;1784;Arvika;17;17;S;Värmlands län;27;Karlstad;SE3;Norra Sverige;SE31;Norra Mellansverige;2;Täta kommuner;21;Täta kommuner avlägset belägna;17 Värmlands län;Region Värmland
+1785;1785;Säffle;17;17;S;Värmlands län;27;Karlstad;SE3;Norra Sverige;SE31;Norra Mellansverige;2;Täta kommuner;22;Täta kommuner nära en större stad;17 Värmlands län;Region Värmland
+1814;1814;Lekeberg;18;18;T;Örebro län;25;Örebro;SE3;Norra Sverige;SE12;Östra Mellansverige;1;Landsbygdskommuner;12;Landsbygdskommuner nära en större stad;18 Örebro län;Region Örebro län
+1860;1860;Laxå;18;18;T;Örebro län;25;Örebro;SE3;Norra Sverige;SE12;Östra Mellansverige;1;Landsbygdskommuner;12;Landsbygdskommuner nära en större stad;18 Örebro län;Region Örebro län
+1861;1861;Hallsberg;18;18;T;Örebro län;25;Örebro;SE3;Norra Sverige;SE12;Östra Mellansverige;1;Landsbygdskommuner;12;Landsbygdskommuner nära en större stad;18 Örebro län;Region Örebro län
+1862;1862;Degerfors;18;18;T;Örebro län;26;Karlskoga;SE3;Norra Sverige;SE12;Östra Mellansverige;2;Täta kommuner;22;Täta kommuner nära en större stad;18 Örebro län;Region Örebro län
+1863;1863;Hällefors;18;18;T;Örebro län;25;Örebro;SE3;Norra Sverige;SE12;Östra Mellansverige;1;Landsbygdskommuner;11;Landsbygdskommuner avlägset belägna;18 Örebro län;Region Örebro län
+1864;1864;Ljusnarsberg;18;18;T;Örebro län;25;Örebro;SE3;Norra Sverige;SE12;Östra Mellansverige;1;Landsbygdskommuner;11;Landsbygdskommuner avlägset belägna;18 Örebro län;Region Örebro län
+1880;1880;Örebro;18;18;T;Örebro län;25;Örebro;SE3;Norra Sverige;SE12;Östra Mellansverige;2;Täta kommuner;22;Täta kommuner nära en större stad;18 Örebro län;Region Örebro län
+1881;1881;Kumla;18;18;T;Örebro län;25;Örebro;SE3;Norra Sverige;SE12;Östra Mellansverige;2;Täta kommuner;22;Täta kommuner nära en större stad;18 Örebro län;Region Örebro län
+1882;1882;Askersund;18;18;T;Örebro län;25;Örebro;SE3;Norra Sverige;SE12;Östra Mellansverige;1;Landsbygdskommuner;12;Landsbygdskommuner nära en större stad;18 Örebro län;Region Örebro län
+1883;1883;Karlskoga;18;18;T;Örebro län;26;Karlskoga;SE3;Norra Sverige;SE12;Östra Mellansverige;2;Täta kommuner;22;Täta kommuner nära en större stad;18 Örebro län;Region Örebro län
+1884;1884;Nora;18;18;T;Örebro län;25;Örebro;SE3;Norra Sverige;SE12;Östra Mellansverige;2;Täta kommuner;22;Täta kommuner nära en större stad;18 Örebro län;Region Örebro län
+1885;1885;Lindesberg;18;18;T;Örebro län;25;Örebro;SE3;Norra Sverige;SE12;Östra Mellansverige;1;Landsbygdskommuner;12;Landsbygdskommuner nära en större stad;18 Örebro län;Region Örebro län
+1904;1904;Skinnskatteberg;19;19;U;Västmanlands län;24;Västerås;SE3;Norra Sverige;SE12;Östra Mellansverige;1;Landsbygdskommuner;12;Landsbygdskommuner nära en större stad;19 Västmanlands län;Region Västmanland
+1907;1907;Surahammar;19;19;U;Västmanlands län;24;Västerås;SE3;Norra Sverige;SE12;Östra Mellansverige;2;Täta kommuner;22;Täta kommuner nära en större stad;19 Västmanlands län;Region Västmanland
+1960;1960;Kungsör;19;19;U;Västmanlands län;24;Västerås;SE3;Norra Sverige;SE12;Östra Mellansverige;2;Täta kommuner;22;Täta kommuner nära en större stad;19 Västmanlands län;Region Västmanland
+1961;1961;Hallstahammar;19;19;U;Västmanlands län;24;Västerås;SE3;Norra Sverige;SE12;Östra Mellansverige;2;Täta kommuner;22;Täta kommuner nära en större stad;19 Västmanlands län;Region Västmanland
+1962;1962;Norberg;19;19;U;Västmanlands län;24;Västerås;SE3;Norra Sverige;SE12;Östra Mellansverige;1;Landsbygdskommuner;11;Landsbygdskommuner avlägset belägna;19 Västmanlands län;Region Västmanland
+1980;1980;Västerås;19;19;U;Västmanlands län;24;Västerås;SE3;Norra Sverige;SE12;Östra Mellansverige;2;Täta kommuner;22;Täta kommuner nära en större stad;19 Västmanlands län;Region Västmanland
+1981;1981;Sala;19;19;U;Västmanlands län;24;Västerås;SE3;Norra Sverige;SE12;Östra Mellansverige;2;Täta kommuner;22;Täta kommuner nära en större stad;19 Västmanlands län;Region Västmanland
+1982;1982;Fagersta;19;19;U;Västmanlands län;24;Västerås;SE3;Norra Sverige;SE12;Östra Mellansverige;2;Täta kommuner;21;Täta kommuner avlägset belägna;19 Västmanlands län;Region Västmanland
+1983;1983;Köping;19;19;U;Västmanlands län;24;Västerås;SE3;Norra Sverige;SE12;Östra Mellansverige;2;Täta kommuner;22;Täta kommuner nära en större stad;19 Västmanlands län;Region Västmanland
+1984;1984;Arboga;19;19;U;Västmanlands län;24;Västerås;SE3;Norra Sverige;SE12;Östra Mellansverige;2;Täta kommuner;22;Täta kommuner nära en större stad;19 Västmanlands län;Region Västmanland
+2021;2021;Vansbro;20;20;W;Dalarnas län;31;Vansbro;SE3;Norra Sverige;SE31;Norra Mellansverige;1;Landsbygdskommuner;11;Landsbygdskommuner avlägset belägna;20 Dalarnas län;Region Dalarna
+2023;2023;Malung-Sälen;20;20;W;Dalarnas län;30;Malung-Sälen;SE3;Norra Sverige;SE31;Norra Mellansverige;1;Landsbygdskommuner;10;Landsbygdskommuner mycket avlägset belägna;20 Dalarnas län;Region Dalarna
+2026;2026;Gagnef;20;20;W;Dalarnas län;34;Falun-Borlänge;SE3;Norra Sverige;SE31;Norra Mellansverige;1;Landsbygdskommuner;12;Landsbygdskommuner nära en större stad;20 Dalarnas län;Region Dalarna
+2029;2029;Leksand;20;20;W;Dalarnas län;34;Falun-Borlänge;SE3;Norra Sverige;SE31;Norra Mellansverige;1;Landsbygdskommuner;12;Landsbygdskommuner nära en större stad;20 Dalarnas län;Region Dalarna
+2031;2031;Rättvik;20;20;W;Dalarnas län;34;Falun-Borlänge;SE3;Norra Sverige;SE31;Norra Mellansverige;1;Landsbygdskommuner;12;Landsbygdskommuner nära en större stad;20 Dalarnas län;Region Dalarna
+2034;2034;Orsa;20;20;W;Dalarnas län;35;Mora;SE3;Norra Sverige;SE31;Norra Mellansverige;1;Landsbygdskommuner;11;Landsbygdskommuner avlägset belägna;20 Dalarnas län;Region Dalarna
+2039;2039;Älvdalen;20;20;W;Dalarnas län;35;Mora;SE3;Norra Sverige;SE31;Norra Mellansverige;1;Landsbygdskommuner;10;Landsbygdskommuner mycket avlägset belägna;20 Dalarnas län;Region Dalarna
+2061;2061;Smedjebacken;20;20;W;Dalarnas län;32;Ludvika;SE3;Norra Sverige;SE31;Norra Mellansverige;2;Täta kommuner;22;Täta kommuner nära en större stad;20 Dalarnas län;Region Dalarna
+2062;2062;Mora;20;20;W;Dalarnas län;35;Mora;SE3;Norra Sverige;SE31;Norra Mellansverige;2;Täta kommuner;21;Täta kommuner avlägset belägna;20 Dalarnas län;Region Dalarna
+2080;2080;Falun;20;20;W;Dalarnas län;34;Falun-Borlänge;SE3;Norra Sverige;SE31;Norra Mellansverige;2;Täta kommuner;22;Täta kommuner nära en större stad;20 Dalarnas län;Region Dalarna
+2081;2081;Borlänge;20;20;W;Dalarnas län;34;Falun-Borlänge;SE3;Norra Sverige;SE31;Norra Mellansverige;2;Täta kommuner;22;Täta kommuner nära en större stad;20 Dalarnas län;Region Dalarna
+2082;2082;Säter;20;20;W;Dalarnas län;34;Falun-Borlänge;SE3;Norra Sverige;SE31;Norra Mellansverige;1;Landsbygdskommuner;12;Landsbygdskommuner nära en större stad;20 Dalarnas län;Region Dalarna
+2083;2083;Hedemora;20;20;W;Dalarnas län;33;Avesta-Hedemora;SE3;Norra Sverige;SE31;Norra Mellansverige;2;Täta kommuner;22;Täta kommuner nära en större stad;20 Dalarnas län;Region Dalarna
+2084;2084;Avesta;20;20;W;Dalarnas län;33;Avesta-Hedemora;SE3;Norra Sverige;SE31;Norra Mellansverige;2;Täta kommuner;22;Täta kommuner nära en större stad;20 Dalarnas län;Region Dalarna
+2085;2085;Ludvika;20;20;W;Dalarnas län;32;Ludvika;SE3;Norra Sverige;SE31;Norra Mellansverige;2;Täta kommuner;22;Täta kommuner nära en större stad;20 Dalarnas län;Region Dalarna
+2101;2101;Ockelbo;21;21;X;Gävleborgs län;36;Gävle;SE3;Norra Sverige;SE31;Norra Mellansverige;1;Landsbygdskommuner;12;Landsbygdskommuner nära en större stad;21 Gävleborgs län;Region Gävleborg
+2104;2104;Hofors;21;21;X;Gävleborgs län;36;Gävle;SE3;Norra Sverige;SE31;Norra Mellansverige;2;Täta kommuner;22;Täta kommuner nära en större stad;21 Gävleborgs län;Region Gävleborg
+2121;2121;Ovanåker;21;21;X;Gävleborgs län;37;Bollnäs-Ovanåker;SE3;Norra Sverige;SE31;Norra Mellansverige;1;Landsbygdskommuner;11;Landsbygdskommuner avlägset belägna;21 Gävleborgs län;Region Gävleborg
+2132;2132;Nordanstig;21;21;X;Gävleborgs län;38;Hudiksvall;SE3;Norra Sverige;SE31;Norra Mellansverige;1;Landsbygdskommuner;11;Landsbygdskommuner avlägset belägna;21 Gävleborgs län;Region Gävleborg
+2161;2161;Ljusdal;21;21;X;Gävleborgs län;39;Ljusdal;SE3;Norra Sverige;SE31;Norra Mellansverige;1;Landsbygdskommuner;11;Landsbygdskommuner avlägset belägna;21 Gävleborgs län;Region Gävleborg
+2180;2180;Gävle;21;21;X;Gävleborgs län;36;Gävle;SE3;Norra Sverige;SE31;Norra Mellansverige;2;Täta kommuner;22;Täta kommuner nära en större stad;21 Gävleborgs län;Region Gävleborg
+2181;2181;Sandviken;21;21;X;Gävleborgs län;36;Gävle;SE3;Norra Sverige;SE31;Norra Mellansverige;2;Täta kommuner;22;Täta kommuner nära en större stad;21 Gävleborgs län;Region Gävleborg
+2182;2182;Söderhamn;21;21;X;Gävleborgs län;37;Bollnäs-Ovanåker;SE3;Norra Sverige;SE31;Norra Mellansverige;1;Landsbygdskommuner;11;Landsbygdskommuner avlägset belägna;21 Gävleborgs län;Region Gävleborg
+2183;2183;Bollnäs;21;21;X;Gävleborgs län;37;Bollnäs-Ovanåker;SE3;Norra Sverige;SE31;Norra Mellansverige;1;Landsbygdskommuner;11;Landsbygdskommuner avlägset belägna;21 Gävleborgs län;Region Gävleborg
+2184;2184;Hudiksvall;21;21;X;Gävleborgs län;38;Hudiksvall;SE3;Norra Sverige;SE31;Norra Mellansverige;1;Landsbygdskommuner;11;Landsbygdskommuner avlägset belägna;21 Gävleborgs län;Region Gävleborg
+2260;2260;Ånge;22;22;Y;Västernorrlands län;42;Sundsvall;SE3;Norra Sverige;SE32;Mellersta Norrland;1;Landsbygdskommuner;11;Landsbygdskommuner avlägset belägna;22 Västernorrlands län;Region Västernorrland
+2262;2262;Timrå;22;22;Y;Västernorrlands län;42;Sundsvall;SE3;Norra Sverige;SE32;Mellersta Norrland;2;Täta kommuner;22;Täta kommuner nära en större stad;22 Västernorrlands län;Region Västernorrland
+2280;2280;Härnösand;22;22;Y;Västernorrlands län;42;Sundsvall;SE3;Norra Sverige;SE32;Mellersta Norrland;2;Täta kommuner;22;Täta kommuner nära en större stad;22 Västernorrlands län;Region Västernorrland
+2281;2281;Sundsvall;22;22;Y;Västernorrlands län;42;Sundsvall;SE3;Norra Sverige;SE32;Mellersta Norrland;2;Täta kommuner;22;Täta kommuner nära en större stad;22 Västernorrlands län;Region Västernorrland
+2282;2282;Kramfors;22;22;Y;Västernorrlands län;43;Kramfors;SE3;Norra Sverige;SE32;Mellersta Norrland;1;Landsbygdskommuner;11;Landsbygdskommuner avlägset belägna;22 Västernorrlands län;Region Västernorrland
+2283;2283;Sollefteå;22;22;Y;Västernorrlands län;45;Sollefteå;SE3;Norra Sverige;SE32;Mellersta Norrland;1;Landsbygdskommuner;11;Landsbygdskommuner avlägset belägna;22 Västernorrlands län;Region Västernorrland
+2284;2284;Örnsköldsvik;22;22;Y;Västernorrlands län;44;Örnsköldsvik;SE3;Norra Sverige;SE32;Mellersta Norrland;2;Täta kommuner;21;Täta kommuner avlägset belägna;22 Västernorrlands län;Region Västernorrland
+2303;2303;Ragunda;23;23;Z;Jämtlands län;41;Östersund;SE3;Norra Sverige;SE32;Mellersta Norrland;1;Landsbygdskommuner;11;Landsbygdskommuner avlägset belägna;23 Jämtlands län;Region Jämtland Härjedalen
+2305;2305;Bräcke;23;23;Z;Jämtlands län;41;Östersund;SE3;Norra Sverige;SE32;Mellersta Norrland;1;Landsbygdskommuner;11;Landsbygdskommuner avlägset belägna;23 Jämtlands län;Region Jämtland Härjedalen
+2309;2309;Krokom;23;23;Z;Jämtlands län;41;Östersund;SE3;Norra Sverige;SE32;Mellersta Norrland;1;Landsbygdskommuner;12;Landsbygdskommuner nära en större stad;23 Jämtlands län;Region Jämtland Härjedalen
+2313;2313;Strömsund;23;23;Z;Jämtlands län;46;Strömsund;SE3;Norra Sverige;SE32;Mellersta Norrland;1;Landsbygdskommuner;11;Landsbygdskommuner avlägset belägna;23 Jämtlands län;Region Jämtland Härjedalen
+2321;2321;Åre;23;23;Z;Jämtlands län;41;Östersund;SE3;Norra Sverige;SE32;Mellersta Norrland;1;Landsbygdskommuner;11;Landsbygdskommuner avlägset belägna;23 Jämtlands län;Region Jämtland Härjedalen
+2326;2326;Berg;23;23;Z;Jämtlands län;41;Östersund;SE3;Norra Sverige;SE32;Mellersta Norrland;1;Landsbygdskommuner;11;Landsbygdskommuner avlägset belägna;23 Jämtlands län;Region Jämtland Härjedalen
+2361;2361;Härjedalen;23;23;Z;Jämtlands län;40;Härjedalen;SE3;Norra Sverige;SE32;Mellersta Norrland;1;Landsbygdskommuner;10;Landsbygdskommuner mycket avlägset belägna;23 Jämtlands län;Region Jämtland Härjedalen
+2380;2380;Östersund;23;23;Z;Jämtlands län;41;Östersund;SE3;Norra Sverige;SE32;Mellersta Norrland;2;Täta kommuner;22;Täta kommuner nära en större stad;23 Jämtlands län;Region Jämtland Härjedalen
+2401;2401;Nordmaling;24;24;AC;Västerbottens län;48;Umeå;SE3;Norra Sverige;SE33;Övre Norrland;1;Landsbygdskommuner;12;Landsbygdskommuner nära en större stad;24 Västerbottens län;Region Västerbotten
+2403;2403;Bjurholm;24;24;AC;Västerbottens län;48;Umeå;SE3;Norra Sverige;SE33;Övre Norrland;1;Landsbygdskommuner;12;Landsbygdskommuner nära en större stad;24 Västerbottens län;Region Västerbotten
+2404;2404;Vindeln;24;24;AC;Västerbottens län;48;Umeå;SE3;Norra Sverige;SE33;Övre Norrland;1;Landsbygdskommuner;12;Landsbygdskommuner nära en större stad;24 Västerbottens län;Region Västerbotten
+2409;2409;Robertsfors;24;24;AC;Västerbottens län;48;Umeå;SE3;Norra Sverige;SE33;Övre Norrland;1;Landsbygdskommuner;12;Landsbygdskommuner nära en större stad;24 Västerbottens län;Region Västerbotten
+2417;2417;Norsjö;24;24;AC;Västerbottens län;52;Skellefteå;SE3;Norra Sverige;SE33;Övre Norrland;1;Landsbygdskommuner;10;Landsbygdskommuner mycket avlägset belägna;24 Västerbottens län;Region Västerbotten
+2418;2418;Malå;24;24;AC;Västerbottens län;49;Lycksele;SE3;Norra Sverige;SE33;Övre Norrland;1;Landsbygdskommuner;10;Landsbygdskommuner mycket avlägset belägna;24 Västerbottens län;Region Västerbotten
+2421;2421;Storuman;24;24;AC;Västerbottens län;51;Storuman;SE3;Norra Sverige;SE33;Övre Norrland;1;Landsbygdskommuner;10;Landsbygdskommuner mycket avlägset belägna;24 Västerbottens län;Region Västerbotten
+2422;2422;Sorsele;24;24;AC;Västerbottens län;54;Arjeplog;SE3;Norra Sverige;SE33;Övre Norrland;1;Landsbygdskommuner;10;Landsbygdskommuner mycket avlägset belägna;24 Västerbottens län;Region Västerbotten
+2425;2425;Dorotea;24;24;AC;Västerbottens län;46;Strömsund;SE3;Norra Sverige;SE33;Övre Norrland;1;Landsbygdskommuner;10;Landsbygdskommuner mycket avlägset belägna;24 Västerbottens län;Region Västerbotten
+2460;2460;Vännäs;24;24;AC;Västerbottens län;48;Umeå;SE3;Norra Sverige;SE33;Övre Norrland;1;Landsbygdskommuner;12;Landsbygdskommuner nära en större stad;24 Västerbottens län;Region Västerbotten
+2462;2462;Vilhelmina;24;24;AC;Västerbottens län;50;Vilhelmina;SE3;Norra Sverige;SE33;Övre Norrland;1;Landsbygdskommuner;10;Landsbygdskommuner mycket avlägset belägna;24 Västerbottens län;Region Västerbotten
+2463;2463;Åsele;24;24;AC;Västerbottens län;47;Åsele;SE3;Norra Sverige;SE33;Övre Norrland;1;Landsbygdskommuner;10;Landsbygdskommuner mycket avlägset belägna;24 Västerbottens län;Region Västerbotten
+2480;2480;Umeå;24;24;AC;Västerbottens län;48;Umeå;SE3;Norra Sverige;SE33;Övre Norrland;2;Täta kommuner;22;Täta kommuner nära en större stad;24 Västerbottens län;Region Västerbotten
+2481;2481;Lycksele;24;24;AC;Västerbottens län;49;Lycksele;SE3;Norra Sverige;SE33;Övre Norrland;2;Täta kommuner;21;Täta kommuner avlägset belägna;24 Västerbottens län;Region Västerbotten
+2482;2482;Skellefteå;24;24;AC;Västerbottens län;52;Skellefteå;SE3;Norra Sverige;SE33;Övre Norrland;2;Täta kommuner;21;Täta kommuner avlägset belägna;24 Västerbottens län;Region Västerbotten
+2505;2505;Arvidsjaur;25;25;BD;Norrbottens län;53;Arvidsjaur;SE3;Norra Sverige;SE33;Övre Norrland;1;Landsbygdskommuner;10;Landsbygdskommuner mycket avlägset belägna;25 Norrbottens län;Region Norrbotten
+2506;2506;Arjeplog;25;25;BD;Norrbottens län;54;Arjeplog;SE3;Norra Sverige;SE33;Övre Norrland;1;Landsbygdskommuner;10;Landsbygdskommuner mycket avlägset belägna;25 Norrbottens län;Region Norrbotten
+2510;2510;Jokkmokk;25;25;BD;Norrbottens län;58;Jokkmokk;SE3;Norra Sverige;SE33;Övre Norrland;1;Landsbygdskommuner;10;Landsbygdskommuner mycket avlägset belägna;25 Norrbottens län;Region Norrbotten
+2513;2513;Överkalix;25;25;BD;Norrbottens län;57;Överkalix;SE3;Norra Sverige;SE33;Övre Norrland;1;Landsbygdskommuner;11;Landsbygdskommuner avlägset belägna;25 Norrbottens län;Region Norrbotten
+2514;2514;Kalix;25;25;BD;Norrbottens län;55;Luleå;SE3;Norra Sverige;SE33;Övre Norrland;2;Täta kommuner;21;Täta kommuner avlägset belägna;25 Norrbottens län;Region Norrbotten
+2518;2518;Övertorneå;25;25;BD;Norrbottens län;55;Luleå;SE3;Norra Sverige;SE33;Övre Norrland;1;Landsbygdskommuner;10;Landsbygdskommuner mycket avlägset belägna;25 Norrbottens län;Region Norrbotten
+2521;2521;Pajala;25;25;BD;Norrbottens län;60;Kiruna;SE3;Norra Sverige;SE33;Övre Norrland;1;Landsbygdskommuner;10;Landsbygdskommuner mycket avlägset belägna;25 Norrbottens län;Region Norrbotten
+2523;2523;Gällivare;25;25;BD;Norrbottens län;59;Gällivare;SE3;Norra Sverige;SE33;Övre Norrland;2;Täta kommuner;21;Täta kommuner avlägset belägna;25 Norrbottens län;Region Norrbotten
+2560;2560;Älvsbyn;25;25;BD;Norrbottens län;55;Luleå;SE3;Norra Sverige;SE33;Övre Norrland;1;Landsbygdskommuner;11;Landsbygdskommuner avlägset belägna;25 Norrbottens län;Region Norrbotten
+2580;2580;Luleå;25;25;BD;Norrbottens län;55;Luleå;SE3;Norra Sverige;SE33;Övre Norrland;2;Täta kommuner;22;Täta kommuner nära en större stad;25 Norrbottens län;Region Norrbotten
+2581;2581;Piteå;25;25;BD;Norrbottens län;55;Luleå;SE3;Norra Sverige;SE33;Övre Norrland;2;Täta kommuner;22;Täta kommuner nära en större stad;25 Norrbottens län;Region Norrbotten
+2582;2582;Boden;25;25;BD;Norrbottens län;55;Luleå;SE3;Norra Sverige;SE33;Övre Norrland;2;Täta kommuner;22;Täta kommuner nära en större stad;25 Norrbottens län;Region Norrbotten
+2583;2583;Haparanda;25;25;BD;Norrbottens län;56;Haparanda;SE3;Norra Sverige;SE33;Övre Norrland;2;Täta kommuner;21;Täta kommuner avlägset belägna;25 Norrbottens län;Region Norrbotten
+2584;2584;Kiruna;25;25;BD;Norrbottens län;60;Kiruna;SE3;Norra Sverige;SE33;Övre Norrland;2;Täta kommuner;21;Täta kommuner avlägset belägna;25 Norrbottens län;Region Norrbotten
