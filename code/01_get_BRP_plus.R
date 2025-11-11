@@ -1,37 +1,104 @@
-library("tidyverse")    # install.packages("tidyverse")
-library("rKolada")
-library("readxl")
-library("conflicted")
-conflict_prefer("filter", "dplyr")
 
-# Radera alla objekt i environment
-rm(list=ls())
-# Definiera arbetskatalog = den katalog där skriptet är sparat
-setwd( dirname( rstudioapi::getActiveDocumentContext()$path ) )
+# --- OBS: WORK IN PROGRESS [2025-11-11] --- #
 
 ################################################################################
-### Programmet BURT hämtar data från Kolada och sparar output i en xlsx-fil. 
-  # Senaste filen just nu heter Utdata_2022-11-03.xlsx
-  # Se BRP+ dokumentation för detaljer
-  # I detta skript använder vi data från (en kopia av) filen fr Burt. 
-  # Detta skript återskaper resultaten från grunden. Detta skript hämtar lista 
-  # på KPI från Utdata-filen men laddar ned datan direkt fr Kolada via web-api.
-  # Detta skript indexerar variablerna. Detta gjordes tidigare i SAS.
+### Beräkning av BRP+ index
+#
+#   Skiptet använder bestämda indikatorer som på förhand är bestämda och
+#   kategoriserade i aspekter, teman och aspekter. Dessa är sparade i 
+#   en CSV-fil, BRP_plus_indikatorer_tbl.csv. All data för dessa indikatorer
+#   hämtas från Kolada genom deras API. Datat standardiseras och beräknar indexet. 
+#   
+#   Skriptet är uppdelat i sektioner:
+#   0. Ladda paket och importera CSV-filer (aka start-filer för BRP+)
+#   1. Hämta hem data från Kolada
+#   
 ################################################################################
 
+# 0. Ladda paket och importera CSV-filer (aka start-filer för BRP+) ####
+
+# PAKET
+# Installera Pacman om det inte redan finns
+if (!require("pacman")) install.packages("pacman") 
+pacman::p_load(tidyverse, rKolada, readxl, pbapply, here, conflicted) # Ladda paket, eller installera dem om de inte finns och ladda dem sen
+conflicted::conflict_prefer("filter", "dplyr") # Om flera paket har funktionen "filter()" använd alltid dplyr-paketet som sandard för "filter()" 
+
+
+# IMPORT AV CSV-FILER
+# Om nödvändigt, rensa Environment
+# rm(list=ls())
+
+# Hitta mapp där hela RProject är sparat och skapa path för /data CSV-filerna finns
+csv_path  <- here::here("data")
+
+# Lista alla CSV-filer i /data
+csv_files <- list.files(csv_path, pattern = "\\.csv$", full.names = TRUE)
+
+# Importera alla CSV-filer i /data
+for (i in seq_along(csv_files)) {
+  file_path <- csv_files[[i]]
+  raw_name  <- tools::file_path_sans_ext(basename(file_path))  # Filnamn utan .csv
+  dat <- readr::read_csv2(file_path) # Uför importen av CSV-filen, read_csv2() används för alla CSV-filer har semikolon som deliminator
+  assign(raw_name, dat, envir = .GlobalEnv) # Skapa, namnge och placera CSV-filen som dataframe i global environment 
+}
+
+# Ta bort onödiga helpers
+rm(dat, raw_name) 
+
+#####
+
+# 1. Hämta hem data från Kolada ####
 # Hämta metadata, däribland vilka vilka KPI som ska hämtas från Kolada
-metadata_kpi <- read_xlsx("Utdata - filen fr Burt.xlsx", 
-                          sheet="Metadata index") %>%
-                rename(kpi = Number, 
-                       kpi_text = Indikator_name) %>% 
+metadata_kpi <- BRP_plus_indikatorer_tbl %>%
+                rename(kpi = Indikator_ID, kpi_text = Indikator_namn) %>% 
                 drop_na(kpi)
 
 ### Hämta nycklar för geografi: 
   # 1. nyckel för "region" och "län"
-  region_lan_nyckel <- read_xlsx("län och regioner.xlsx", sheet="Blad1")
+  region_lan_nyckel <- region_kodnyckel_tbl
   # 2. nyckel för municipality_id 
-  municipality_id_nyckel <- read_xlsx("län och regioner.xlsx", sheet="Blad2" )
+  municipality_id_nyckel <- kommun_kodnyckel_tbl
 
+  #------ TEST START -----####
+  library(dplyr)
+  library(purrr)
+  library(pbapply)
+  
+  # Slå på progress bar för map-funktioner
+  pboptions(type = "timer")  
+  
+  ### Hämta data fr Kolada, genom att anropa unika KPI 
+  brpplus_data <- metadata_kpi %>% 
+    distinct(kpi) %>% 
+    pull() %>% 
+    pblapply(function(.x) {
+      print(.x)
+      
+      # Hämta data
+      temp_df <- get_values(kpi=.x, period=1990:2022) %>% 
+        filter(municipality_type %in% c("L","K"))
+      
+      # Beräkna start- och slutår
+      endyear <- temp_df %>% drop_na(value) %>% pull(year) %>% max()
+      startyear <- temp_df %>% drop_na(value) %>% pull(year) %>% unique() %>% tail(6) %>% head(1)
+      
+      temp_df %>%
+        mutate(
+          Lagar = startyear,
+          Maxar = endyear,
+          year = as.character(year),
+          Kon_ford = if_else(unique(gender) %>% str_detect("M|K") %>% sum() == 2, 1, 0)
+        ) %>%
+        relocate(municipality, municipality_id, kpi, gender, year) %>%
+        ungroup()
+    }) %>% 
+    bind_rows()  # Slå ihop alla dataframes till en
+  
+  # Stäng av progress bar om du vill
+  pboptions(reset = TRUE)
+  #------ TEST END -----####
+  
+  
 ### Hämta data fr Kolada, genom att anropa unika KPI 
 brpplus_data <- metadata_kpi %>% distinct(kpi) %>% pull() %>% map_dfr(~{ 
   print(.x)
