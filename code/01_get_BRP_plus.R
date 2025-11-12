@@ -45,66 +45,80 @@ for (i in seq_along(csv_files)) {
 # Ta bort onödiga helpers
 rm(dat, raw_name) 
 
-#####
+# ####
 
 # 1. Hämta hem data från Kolada ####
 # Hämta metadata, däribland vilka vilka KPI som ska hämtas från Kolada
+# Obsevera att namnändringarna enbart görs för att koden ska kunna köras utan att ändra namnen senare i koden -- detta ska ändras
 metadata_kpi <- BRP_plus_indikatorer_tbl %>%
                 rename(kpi = Indikator_ID, kpi_text = Indikator_namn) %>% 
                 drop_na(kpi)
 
-### Hämta nycklar för geografi: 
+# Hämta nycklar för geografi: 
   # 1. nyckel för "region" och "län"
   region_lan_nyckel <- region_kodnyckel_tbl
   # 2. nyckel för municipality_id 
   municipality_id_nyckel <- kommun_kodnyckel_tbl
 
-  #------ TEST START -----####
-  library(dplyr)
-  library(purrr)
-  library(pbapply)
   
-  # Slå på progress bar för map-funktioner
-  pboptions(type = "timer")  
-  
-  ### Hämta data fr Kolada, genom att anropa unika KPI 
-  brpplus_data <- metadata_kpi %>% 
-    distinct(kpi) %>% 
-    pull() %>% 
-    pblapply(function(.x) {
-      print(.x)
+# Hämta data från Kolada (nu med progress bar) 
+# Skapa lista
+kpi_list <- metadata_kpi %>%
+  distinct(kpi) %>%
+  pull()
+
+  result_list <- pblapply(kpi_list, function(.x) {
+    # wrap each iteration in tryCatch so one failing KPI won't stop the whole run
+    tryCatch({
+      message("KPI: ", .x)
       
-      # Hämta data
-      temp_df <- get_values(kpi=.x, period=1990:2022) %>% 
-        filter(municipality_type %in% c("L","K"))
+      temp_df <- rKolada::get_values(kpi = .x, period = 1990:2025, verbose = FALSE)
       
-      # Beräkna start- och slutår
+      # If the query returned NULL or an empty table, skip this KPI cleanly
+      if (is.null(temp_df) || (is.data.frame(temp_df) && nrow(temp_df) == 0)) {
+        message("  -> No data for ", .x)
+        return(tibble())   # empty tibble, pblapply will keep list element
+      }
+      
+      # proceed with cleaning/processing
+      temp_df <- temp_df %>%
+        filter(municipality_type %in% c("L", "K"))
+      
+      # compute start & end years safely (only from non-missing values)
       endyear <- temp_df %>% drop_na(value) %>% pull(year) %>% max()
       startyear <- temp_df %>% drop_na(value) %>% pull(year) %>% unique() %>% tail(6) %>% head(1)
       
+      # safer gender detection (avoid referencing temp_df$gender inside mutate)
+      genders <- temp_df$gender %>% na.omit() %>% unique()
+      kon_ford <- ifelse(sum(str_detect(genders, "M|K")) == 2, 1, 0)
+      
       temp_df %>%
-        mutate(
-          Lagar = startyear,
-          Maxar = endyear,
-          year = as.character(year),
-          Kon_ford = if_else(unique(gender) %>% str_detect("M|K") %>% sum() == 2, 1, 0)
-        ) %>%
+        mutate(Lagar = startyear,
+               Maxar = endyear,
+               year = as.character(year),
+               Kon_ford = kon_ford) %>%
         relocate(municipality, municipality_id, kpi, gender, year) %>%
         ungroup()
-    }) %>% 
-    bind_rows()  # Slå ihop alla dataframes till en
+    }, error = function(e) {
+      # on error, log and return empty tibble so overall process continues
+      message("  -> ERROR for ", .x, " : ", conditionMessage(e))
+      return(tibble())
+    })
+  }, 
+cl = NULL)   # cl=NULL makes it run sequentially; remove or set to a cluster if parallel
   
-  # Stäng av progress bar om du vill
-  pboptions(reset = TRUE)
-  #------ TEST END -----####
+# Combine list of tibbles into one dataframe (empty tibbles are ignored)
+brpplus_data <- dplyr::bind_rows(result_list)
+
+# ####
   
-  
+# OLD Hämta data från Kolada ####  
 ### Hämta data fr Kolada, genom att anropa unika KPI 
 brpplus_data <- metadata_kpi %>% distinct(kpi) %>% pull() %>% map_dfr(~{ 
   print(.x)
   
   # städa lite
-  temp_df <- get_values(kpi=.x, period=1990:2022)  %>% 
+  temp_df <- rKolada::get_values(kpi=.x, period=1994:1995)  %>% 
     ### Filtrera, för kommun och län 
     filter(municipality_type %in% c("L","K")) 
   
@@ -127,11 +141,12 @@ brpplus_data <- metadata_kpi %>% distinct(kpi) %>% pull() %>% map_dfr(~{
     return()
   }) 
 ################################################################################
-## ska nu vara 74 kpi, vilket verkar stämma
+# Ska nu vara 74 kpi, vilket verkar stämma
 brpplus_data %>% drop_na %>% select(kpi) %>% unique %>% pull %>% sort %>% length
 
+# ####
 
-
+# 2. Imputering
 ################################################################################
 ### Imputera saknade värden, stegvis:
 # 1. Beräkna medelvärde per län och per riket, utifrån existerande data
