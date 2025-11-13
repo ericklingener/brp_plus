@@ -120,48 +120,18 @@ empty_kpis         # list of KPIs with no rows
 # Drop them by name
 result_list_clean <- result_list[!names(result_list) %in% empty_kpis]
 
+# Sätt ihop listan av tibbles med data till en stor dataframe
+# Detta steget används fortfarande för att kunna köra resten av koden 
+# Resten av koden bör dock justeras så att man kan använda köra BRP_plus_data_base (skapas nedan)
+brpplus_data <- bind_rows(result_list_clean) %>%
+                mutate(Datum_hamtad = format(Sys.Date(), "%Y-%m-%d")) 
+
 # Sätt ihop listan av tibbles med data till en stor dataframe och lägg till kolumn "Datum_hamtad"
 BRP_plus_data_base <- bind_rows(result_list_clean) %>%
                       mutate(Datum_hamtad = format(Sys.Date(), "%Y-%m-%d")) 
 
-# Export för att slippa behöva hämta hem all data vid varje körning
-write.csv2(BRP_plus_data_base, 
-           paste0(csv_path, "/BRP_plus_data_base.csv"),
-           row.names=FALSE) 
-
 # ####
-  
-# OLD Hämta data från Kolada ####  
-### Hämta data fr Kolada, genom att anropa unika KPI 
-brpplus_data <- metadata_kpi %>% distinct(kpi) %>% pull() %>% map_dfr(~{ 
-  print(.x)
-  
-  # städa lite
-  temp_df <- rKolada::get_values(kpi=.x, period=1994:1995)  %>% 
-    ### Filtrera, för kommun och län 
-    filter(municipality_type %in% c("L","K")) 
-  
-  # Notera senaste år och år = -5, endast år med observationer räknas
-  endyear <- temp_df %>% drop_na(value) %>% select(year) %>% max()
-  startyear <- temp_df %>% drop_na(value) %>% select(year) %>% unique %>% tail(6) %>% head(1) %>% pull
-  
-  temp_df %>%   
-    # spara start- och slutår som variabler
-    mutate(Lagar = startyear, 
-           Maxar = endyear, 
-           year = as.character(year)) %>%
-    
-    # Skapa metainfo Kon_ford = är statistiken könsfördelad?
-    mutate(Kon_ford = if_else(temp_df$gender %>% unique %>% str_detect("M|K") %>% sum()==2, 1,0)) %>% 
-    
-    # returnera färdig tabell
-    relocate(municipality, municipality_id, kpi, gender, year ) %>% 
-    ungroup %>% 
-    return()
-  }) 
-################################################################################
-# Kontrollera hur många indikatorer som hämtades hem 
-# Det ska vara lika många som antalet rader i CSV-filen start_BRP_plus_indikatorer_tbl minus antalet indikatorer utan data från empty_kpis
+
 BRP_plus_data_base %>% drop_na %>% select(kpi) %>% unique %>% pull %>% sort %>% length
 
 # ####
@@ -189,6 +159,7 @@ region_group_nyckel <- brpplus_data %>%
 ################################################################################
 ### Imputering
 ### Skapa kartesisk produkt: alla kpi, alla kommuner, alla årtal
+### OBS: Tar ca 5 minuter att köra
 brpplus_data <- brpplus_data %>%
   distinct(kpi, gender) %>% 
   tidyr::crossing( brpplus_data %>% distinct(year) ) %>% 
@@ -231,20 +202,28 @@ brpplus_data <- brpplus_data %>%
   left_join(metadata_kpi %>% 
               select(kpi, kpi_text, Del, Tema, Aspekt, Log, Omvand_skala)
             ) 
+
+# Logaritmera de variabler som ska vara logaritmerade
+brpplus_data <- brpplus_data %>% mutate(value = ifelse(Log == 1, log(value), value))
+
+
+# Export för att slippa behöva hämta hem all data vid varje körning
+write.csv2(BRP_plus_data_base, 
+           paste0(csv_path, "/BRP_plus_data_base.csv"),
+           row.names=FALSE) 
+
 ################################################################################
 
 
 ################################################################################
-### Log och standardisering
+### Standardisering enligt "max-min-metoden"
   # Villkor: min != max + Omvänd skala
 
   # LOG OCH KÖNSUPPDELAD = värden utanför 0 och 100
   # max värde = senaste år + total (ej separat för män och kvinnor)
 
 ################################################################################
-brpplus_data <- brpplus_data %>%   
-  # Logaritmera de variabler som ska vara logaritmerade
-  mutate(value= if_else(Log==1, log(value), value)) %>% 
+brpplus_data <- brpplus_data %>%
 
   ### Standardisera värden, per kommuntyp, genus, år
   group_by(kpi, municipality_type, gender, year) %>% 
