@@ -6,16 +6,16 @@
 #
 #   Skiptet använder bestämda indikatorer som på förhand är bestämda och
 #   kategoriserade i aspekter, teman och aspekter. Dessa är sparade i 
-#   en CSV-fil, BRP_plus_indikatorer_tbl.csv. All data för dessa indikatorer
+#   en CSV-fil, start_BRP_plus_indikatorer_tbl.csv. All data för dessa indikatorer
 #   hämtas från Kolada genom deras API. Datat standardiseras och beräknar indexet. 
 #   
 #   Skriptet är uppdelat i sektioner:
-#   0. Ladda paket och importera CSV-filer (aka start-filer för BRP+)
+#   0. Ladda paket och importera start-filer (i.e. CSV-filerna för BRP+ och kodnycklar)
 #   1. Hämta hem data från Kolada
 #   
 ################################################################################
 
-# 0. Ladda paket och importera CSV-filer (aka start-filer för BRP+) ####
+# 0. Ladda paket och importera start-filer ####
 
 # PAKET
 # Installera Pacman om det inte redan finns
@@ -32,7 +32,7 @@ conflicted::conflict_prefer("filter", "dplyr") # Om flera paket har funktionen "
 csv_path  <- here::here("data")
 
 # Lista alla CSV-filer i /data
-csv_files <- list.files(csv_path, pattern = "\\.csv$", full.names = TRUE)
+csv_files <- list.files(csv_path, pattern = "^start.*\\.csv$", full.names = TRUE)
 
 # Importera alla CSV-filer i /data
 for (i in seq_along(csv_files)) {
@@ -50,29 +50,33 @@ rm(dat, raw_name)
 # 1. Hämta hem data från Kolada ####
 # Hämta metadata, däribland vilka vilka KPI som ska hämtas från Kolada
 # Obsevera att namnändringarna enbart görs för att koden ska kunna köras utan att ändra namnen senare i koden -- detta ska ändras
-metadata_kpi <- BRP_plus_indikatorer_tbl %>%
+metadata_kpi <- start_BRP_plus_indikatorer_tbl %>%
                 rename(kpi = Indikator_ID, kpi_text = Indikator_namn) %>% 
                 drop_na(kpi)
 
 # Hämta nycklar för geografi: 
   # 1. nyckel för "region" och "län"
-  region_lan_nyckel <- region_kodnyckel_tbl
+  region_lan_nyckel <- start_region_kodnyckel_tbl
   # 2. nyckel för municipality_id 
-  municipality_id_nyckel <- kommun_kodnyckel_tbl
+  municipality_id_nyckel <- start_kommun_kodnyckel_tbl
 
   
-# Hämta data från Kolada (nu med progress bar) 
+# Hämta data från Kolada (med progress bar) 
 # Skapa lista
 kpi_list <- metadata_kpi %>%
   distinct(kpi) %>%
   pull()
+
+  names(kpi_list) <- kpi_list   # each list element now carries its KPI name
 
   result_list <- pblapply(kpi_list, function(.x) {
     # wrap each iteration in tryCatch so one failing KPI won't stop the whole run
     tryCatch({
       message("KPI: ", .x)
       
-      temp_df <- rKolada::get_values(kpi = .x, period = 1990:2025, verbose = FALSE)
+      temp_df <- rKolada::get_values(kpi = .x,           # Nyckltal i rKolada / API:et refereras som "KPI"
+                                     period = 1990:2025, # Tidperioden som data hämtas hem
+                                     verbose = FALSE)    # Skriv inte ut detaljer i loggen (pblapply används istället)
       
       # If the query returned NULL or an empty table, skip this KPI cleanly
       if (is.null(temp_df) || (is.data.frame(temp_df) && nrow(temp_df) == 0)) {
@@ -105,10 +109,25 @@ kpi_list <- metadata_kpi %>%
       return(tibble())
     })
   }, 
-cl = NULL)   # cl=NULL makes it run sequentially; remove or set to a cluster if parallel
+  cl = NULL)   # cl=NULL makes it run sequentially; remove or set to a cluster if parallel
   
-# Combine list of tibbles into one dataframe (empty tibbles are ignored)
-brpplus_data <- dplyr::bind_rows(result_list)
+
+# Check if there are any empty KPIs (if they have names)
+empty_kpis <- names(result_list)[vapply(result_list, nrow, integer(1)) == 0]
+length(empty_kpis)  # how many
+empty_kpis         # list of KPIs with no rows
+
+# Drop them by name
+result_list_clean <- result_list[!names(result_list) %in% empty_kpis]
+
+# Sätt ihop listan av tibbles med data till en stor dataframe och lägg till kolumn "Datum_hamtad"
+BRP_plus_data_base <- bind_rows(result_list_clean) %>%
+                      mutate(Datum_hamtad = format(Sys.Date(), "%Y-%m-%d")) 
+
+# Export för att slippa behöva hämta hem all data vid varje körning
+write.csv2(BRP_plus_data_base, 
+           paste0(csv_path, "/BRP_plus_data_base.csv"),
+           row.names=FALSE) 
 
 # ####
   
@@ -141,8 +160,9 @@ brpplus_data <- metadata_kpi %>% distinct(kpi) %>% pull() %>% map_dfr(~{
     return()
   }) 
 ################################################################################
-# Ska nu vara 74 kpi, vilket verkar stämma
-brpplus_data %>% drop_na %>% select(kpi) %>% unique %>% pull %>% sort %>% length
+# Kontrollera hur många indikatorer som hämtades hem 
+# Det ska vara lika många som antalet rader i CSV-filen start_BRP_plus_indikatorer_tbl minus antalet indikatorer utan data från empty_kpis
+BRP_plus_data_base %>% drop_na %>% select(kpi) %>% unique %>% pull %>% sort %>% length
 
 # ####
 
@@ -169,11 +189,10 @@ region_group_nyckel <- brpplus_data %>%
 ################################################################################
 ### Imputering
 ### Skapa kartesisk produkt: alla kpi, alla kommuner, alla årtal
-  # tidyr::crossing() 
 brpplus_data <- brpplus_data %>%
   distinct(kpi, gender) %>% 
-  crossing( brpplus_data %>% distinct(year) ) %>% 
-  crossing( brpplus_data %>% distinct(municipality) ) %>%
+  tidyr::crossing( brpplus_data %>% distinct(year) ) %>% 
+  tidyr::crossing( brpplus_data %>% distinct(municipality) ) %>%
   
   # Sammanfoga kartesiska produkten med huvuddatan + den metadata vi själva skapat
   left_join(brpplus_data %>% 
