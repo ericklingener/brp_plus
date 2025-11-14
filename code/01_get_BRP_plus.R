@@ -57,7 +57,11 @@ metadata_kpi <- start_BRP_plus_indikatorer_tbl %>%
 # Hämta nycklar för geografi: 
 # OBS: Namnändringarna och tabellstrukturerna enbart görs för att koden ska kunna köras utan att ändra namnen senare i koden -- detta ska ändras
 # 1. nyckel för "region" och "län"
-region_lan_nyckel <- start_region_kodnyckel_tbl %>% select(municipality_id, region_lan, municipality)
+region_lan_nyckel <- start_region_kodnyckel_tbl %>% 
+  transmute(municipality_id = Lan_kod, 
+            region_lan = Lan_Namn,
+            municipality = Kolada_lan_namn) %>%
+  select(municipality_id, region_lan, municipality)
 # 2. nyckel för municipality_id 
 municipality_id_nyckel <- bind_rows(
   start_kommun_kodnyckel_tbl %>% distinct(Lan_kod_S, Lan_Namn) %>% transmute(m_id_text = Lan_kod_S, 
