@@ -49,90 +49,97 @@ rm(dat, raw_name)
 
 # 1. Hämta hem data från Kolada ####
 # Hämta metadata, däribland vilka vilka KPI som ska hämtas från Kolada
-# Obsevera att namnändringarna enbart görs för att koden ska kunna köras utan att ändra namnen senare i koden -- detta ska ändras
+# OBS: Namnändringarna och tabellstrukturerna enbart görs för att koden ska kunna köras utan att ändra namnen senare i koden -- detta ska ändras
 metadata_kpi <- start_BRP_plus_indikatorer_tbl %>%
-                rename(kpi = Indikator_ID, kpi_text = Indikator_namn) %>% 
-                drop_na(kpi)
+  rename(kpi = Indikator_ID, kpi_text = Indikator_namn) %>% 
+  drop_na(kpi)
 
 # Hämta nycklar för geografi: 
-  # 1. nyckel för "region" och "län"
-  region_lan_nyckel <- start_region_kodnyckel_tbl
-  # 2. nyckel för municipality_id 
-  municipality_id_nyckel <- start_kommun_kodnyckel_tbl
+# OBS: Namnändringarna och tabellstrukturerna enbart görs för att koden ska kunna köras utan att ändra namnen senare i koden -- detta ska ändras
+# 1. nyckel för "region" och "län"
+region_lan_nyckel <- start_region_kodnyckel_tbl %>% select(municipality_id, region_lan, municipality)
+# 2. nyckel för municipality_id 
+municipality_id_nyckel <- bind_rows(
+  start_kommun_kodnyckel_tbl %>% distinct(Lan_kod_S, Lan_Namn) %>% transmute(m_id_text = Lan_kod_S, 
+                                                                             municipality = Lan_Namn),
+  start_kommun_kodnyckel_tbl %>% distinct(Kommun_kod_S, Kommun_namn) %>% transmute(m_id_text = Kommun_kod_S, 
+                                                                                   municipality = Kommun_namn) 
+) %>% 
+  arrange(m_id_text)
 
-  
+
+
 # Hämta data från Kolada (med progress bar) 
 # Skapa lista
 kpi_list <- metadata_kpi %>%
   distinct(kpi) %>%
   pull()
 
-  names(kpi_list) <- kpi_list   # each list element now carries its KPI name
+names(kpi_list) <- kpi_list   # each list element now carries its KPI name
 
-  result_list <- pblapply(kpi_list, function(.x) {
-    # wrap each iteration in tryCatch so one failing KPI won't stop the whole run
-    tryCatch({
-      message("KPI: ", .x)
-      
-      temp_df <- rKolada::get_values(kpi = .x,           # Nyckltal i rKolada / API:et refereras som "KPI"
-                                     period = 1990:2025, # Tidperioden som data hämtas hem
-                                     verbose = FALSE)    # Skriv inte ut detaljer i loggen (pblapply används istället)
-      
-      # If the query returned NULL or an empty table, skip this KPI cleanly
-      if (is.null(temp_df) || (is.data.frame(temp_df) && nrow(temp_df) == 0)) {
-        message("  -> No data for ", .x)
-        return(tibble())   # empty tibble, pblapply will keep list element
-      }
-      
-      # proceed with cleaning/processing
-      temp_df <- temp_df %>%
-        filter(municipality_type %in% c("L", "K"))
-      
-      # compute start & end years safely (only from non-missing values)
-      endyear <- temp_df %>% drop_na(value) %>% pull(year) %>% max()
-      startyear <- temp_df %>% drop_na(value) %>% pull(year) %>% unique() %>% tail(6) %>% head(1)
-      
-      # safer gender detection (avoid referencing temp_df$gender inside mutate)
-      genders <- temp_df$gender %>% na.omit() %>% unique()
-      kon_ford <- ifelse(sum(str_detect(genders, "M|K")) == 2, 1, 0)
-      
-      temp_df %>%
-        mutate(Lagar = startyear,
-               Maxar = endyear,
-               year = as.character(year),
-               Kon_ford = kon_ford) %>%
-        relocate(municipality, municipality_id, kpi, gender, year) %>%
-        ungroup()
-    }, error = function(e) {
-      # on error, log and return empty tibble so overall process continues
-      message("  -> ERROR for ", .x, " : ", conditionMessage(e))
-      return(tibble())
-    })
-  }, 
-  cl = NULL)   # cl=NULL makes it run sequentially; remove or set to a cluster if parallel
-  
+result_list_raw <- pblapply(kpi_list, function(.x) {
+  # wrap each iteration in tryCatch so one failing KPI won't stop the whole run
+  tryCatch({
+    message("KPI: ", .x)
+    
+    temp_df <- rKolada::get_values(kpi = .x,           # Nyckltal i rKolada / API:et refereras som "KPI"
+                                   period = 1990:2025, # Tidperioden som data hämtas hem
+                                   verbose = FALSE)    # Skriv inte ut detaljer i loggen (pblapply används istället)
+    
+    # If the query returned NULL or an empty table, skip this KPI cleanly
+    if (is.null(temp_df) || (is.data.frame(temp_df) && nrow(temp_df) == 0)) {
+      message("  -> No data for ", .x)
+      return(tibble())   # empty tibble, pblapply will keep list element
+    }
+    
+    # proceed with cleaning/processing
+    temp_df <- temp_df %>%
+      filter(municipality_type %in% c("L", "K"))
+    
+    # compute start & end years safely (only from non-missing values)
+    endyear <- temp_df %>% drop_na(value) %>% pull(year) %>% max()
+    startyear <- temp_df %>% drop_na(value) %>% pull(year) %>% unique() %>% tail(6) %>% head(1)
+    
+    # safer gender detection (avoid referencing temp_df$gender inside mutate)
+    genders <- temp_df$gender %>% na.omit() %>% unique()
+    kon_ford <- ifelse(sum(str_detect(genders, "M|K")) == 2, 1, 0)
+    
+    temp_df %>%
+      mutate(Lagar = startyear,
+             Maxar = endyear,
+             year = as.character(year),
+             Kon_ford = kon_ford) %>%
+      relocate(municipality, municipality_id, kpi, gender, year) %>%
+      ungroup()
+  }, error = function(e) {
+    # on error, log and return empty tibble so overall process continues
+    message("  -> ERROR for ", .x, " : ", conditionMessage(e))
+    return(tibble())
+  })
+}, 
+cl = NULL)   # cl=NULL makes it run sequentially; remove or set to a cluster if parallel
+
 
 # Check if there are any empty KPIs (if they have names)
-empty_kpis <- names(result_list)[vapply(result_list, nrow, integer(1)) == 0]
+empty_kpis <- names(result_list_raw)[vapply(result_list_raw, nrow, integer(1)) == 0]
 length(empty_kpis)  # how many
 empty_kpis         # list of KPIs with no rows
 
 # Drop them by name
-result_list_clean <- result_list[!names(result_list) %in% empty_kpis]
+result_list_clean <- result_list_raw[!names(result_list_raw) %in% empty_kpis]
 
 # Sätt ihop listan av tibbles med data till en stor dataframe
 # Detta steget används fortfarande för att kunna köra resten av koden 
 # Resten av koden bör dock justeras så att man kan använda köra BRP_plus_data_base (skapas nedan)
-brpplus_data <- bind_rows(result_list_clean) %>%
-                mutate(Datum_hamtad = format(Sys.Date(), "%Y-%m-%d")) 
+brpplus_data_raw <- bind_rows(result_list_clean) 
 
 # Sätt ihop listan av tibbles med data till en stor dataframe och lägg till kolumn "Datum_hamtad"
-BRP_plus_data_base <- bind_rows(result_list_clean) %>%
-                      mutate(Datum_hamtad = format(Sys.Date(), "%Y-%m-%d")) 
+#BRP_plus_data_base <- bind_rows(result_list_clean) %>%
+#                     mutate(Datum_hamtad = format(Sys.Date(), "%Y-%m-%d")) 
 
 # ####
 
-BRP_plus_data_base %>% drop_na %>% select(kpi) %>% unique %>% pull %>% sort %>% length
+brpplus_data_raw %>% drop_na %>% select(kpi) %>% unique %>% pull %>% sort %>% length
 
 # ####
 
@@ -148,7 +155,7 @@ BRP_plus_data_base %>% drop_na %>% select(kpi) %>% unique %>% pull %>% sort %>% 
 
 ################################################################################
 ### Gruppering av kommuner per län
-region_group_nyckel <- brpplus_data %>% 
+region_group_nyckel <- brpplus_data_raw %>% 
   mutate(municipality_id = as.numeric(municipality_id), 
          municipality_id_100 = if_else(str_detect(municipality, "[rR]egion"), municipality_id * 100, municipality_id), 
          region_group = municipality_id_100 %/% 100
@@ -160,16 +167,16 @@ region_group_nyckel <- brpplus_data %>%
 ### Imputering
 ### Skapa kartesisk produkt: alla kpi, alla kommuner, alla årtal
 ### OBS: Tar ca 5 minuter att köra
-brpplus_data <- brpplus_data %>%
+brpplus_data_imp <- brpplus_data_raw %>%
   distinct(kpi, gender) %>% 
-  tidyr::crossing( brpplus_data %>% distinct(year) ) %>% 
-  tidyr::crossing( brpplus_data %>% distinct(municipality) ) %>%
+  tidyr::crossing( brpplus_data_raw %>% distinct(year) ) %>% 
+  tidyr::crossing( brpplus_data_raw %>% distinct(municipality) ) %>%
   
   # Sammanfoga kartesiska produkten med huvuddatan + den metadata vi själva skapat
-  left_join(brpplus_data %>% 
+  left_join(brpplus_data_raw %>% 
               select(municipality, municipality_type, year, kpi, gender, value, 
                      Lagar, Maxar, Kon_ford)
-            ) %>% 
+  ) %>% 
   
   # Sammanfoga med nyckeln för regiongrupper
   left_join(region_group_nyckel) %>% 
@@ -187,44 +194,54 @@ brpplus_data <- brpplus_data %>%
   group_by(region_group, 
            kpi, year, gender) %>% 
   mutate(value_mean_region = if_else( municipality_type=="K",  mean(value, na.rm=TRUE) , NA_real_) , 
-  # Ersätt NA kommun med region-medel
-        value = if_else(municipality_type=="K" & is.na(value) , value_mean_region, value ),
-  # Ersätt NA region med region-medel
-        value = if_else(municipality_type=="L" & is.na(value) , value_mean_region, value )
-         ) %>% 
+         # Ersätt NA kommun med region-medel
+         value = if_else(municipality_type=="K" & is.na(value) , value_mean_region, value ),
+         # Ersätt NA region med region-medel
+         value = if_else(municipality_type=="L" & is.na(value) , value_mean_region, value )
+  ) %>% 
   drop_na(value) %>% 
   arrange(kpi, gender, year, municipality_id)
 
 ################################################################################
 ### Sammanfoga med metadata metadata fr burt
 ################################################################################
-brpplus_data <- brpplus_data %>% 
+brpplus_data_imp_meta <- brpplus_data_imp %>% 
   left_join(metadata_kpi %>% 
               select(kpi, kpi_text, Del, Tema, Aspekt, Log, Omvand_skala)
-            ) 
+  ) 
 
 # Logaritmera de variabler som ska vara logaritmerade
-brpplus_data <- brpplus_data %>% mutate(value = ifelse(Log == 1, log(value), value))
+brpplus_data_imp_meta_log <- brpplus_data_imp_meta %>% mutate(value = ifelse(Log == 1, log(value), value))
 
+# Lägg till en kolumn med dagens datum
+brpplus_data_base <- brpplus_data_imp_meta_log %>% mutate(Datum_hamtad = format(Sys.Date(), "%Y-%m-%d")) 
+glimpse(brpplus_data_base)
 
-# Export för att slippa behöva hämta hem all data vid varje körning
-write.csv2(BRP_plus_data_base, 
-           paste0(csv_path, "/BRP_plus_data_base.csv"),
-           row.names=FALSE) 
+# Export av zippad CSV för att slippa behöva hämta hem all data vid varje körning
+# CSV-filen zippas för att den är över 100MB och därmed inte kan läggas upp på GitHub
+{
+  zip_file <- file.path(csv_path, "BRP_plus_data_base.zip") # Förbered export av ZIP-fil
+  tmp_csv  <- tempfile(fileext = ".csv") # Förbered export av CSV-fil till temp
+  
+  write.csv2(brpplus_data_base, tmp_csv, row.names = FALSE) 
+  zip(zipfile = zip_file, files = tmp_csv, flags = "-j") 
+  unlink(tmp_csv) # Ta bort CSV-fil från temp
+}
+
 
 ################################################################################
 
 
 ################################################################################
 ### Standardisering enligt "max-min-metoden"
-  # Villkor: min != max + Omvänd skala
+# Villkor: min != max + Omvänd skala
 
-  # LOG OCH KÖNSUPPDELAD = värden utanför 0 och 100
-  # max värde = senaste år + total (ej separat för män och kvinnor)
+# LOG OCH KÖNSUPPDELAD = värden utanför 0 och 100
+# max värde = senaste år + total (ej separat för män och kvinnor)
 
 ################################################################################
-brpplus_data <- brpplus_data %>%
-
+brpplus_stand_maxmin <- brpplus_data_base %>%
+  
   ### Standardisera värden, per kommuntyp, genus, år
   group_by(kpi, municipality_type, gender, year) %>% 
   
@@ -241,35 +258,35 @@ brpplus_data <- brpplus_data %>%
     
     # övriga = 0
     TRUE ~ 0
-    )
-    ) %>% 
+  )
+  ) %>% 
   ungroup
 
 ### kontrollera så omvands_skala fortf är unik för varje kpi
-  # Detta anrop ska resultera i en tom tabell
-brpplus_data %>% group_by(kpi, Omvand_skala) %>% tally %>% 
+# Detta anrop ska resultera i en tom tabell
+brpplus_stand_maxmin %>% group_by(kpi, Omvand_skala) %>% tally %>% 
   pivot_wider(names_from = Omvand_skala, values_from=n) %>% drop_na
 
-brpplus_data %>% 
+brpplus_stand_maxmin %>% 
   group_by(kpi_text, municipality_type, gender, year, Omvand_skala) %>% 
   summarise(min=min(standard_value), 
             max=max(standard_value),
             min_value = min(value), 
             max_value = max(value)
-           ) 
+  ) 
 
-brpplus_data %>% summary
+brpplus_stand_maxmin %>% summary
 
-brpplus_data %>% glimpse
+brpplus_stand_maxmin %>% glimpse
 
 ################################################################################
 ### Exportera till 2 filer för kommun & region
-  # Exporterat innehåll klistras in i flikarna
-  # "Dataunderlag_region" och "Dataunderlag_kommun" i filen "Data och index BRP+ 2022.xlsx"
+# Exporterat innehåll klistras in i flikarna
+# "Dataunderlag_region" och "Dataunderlag_kommun" i filen "Data och index BRP+ 2022.xlsx"
 ################################################################################
 ### Skapa funktion för att exportera resultatdata
 exportera_brpplusdata <- function(obj, 
-                                   filnamnet) {
+                                  filnamnet) {
   obj %>%
     # filter(municipality!="Riket") %>% 
     
@@ -278,7 +295,7 @@ exportera_brpplusdata <- function(obj,
     mutate(municipality = if_else(!is.na(region_lan), 
                                   region_lan, 
                                   municipality)) %>% 
-
+    
     # skapa variabel "Region" med läns och kommun-nr
     left_join(municipality_id_nyckel) %>% 
     # byt namn
@@ -292,59 +309,59 @@ exportera_brpplusdata <- function(obj,
     
     # Skriv om variabel gender
     mutate(gender = case_when(gender=="T"~"Totalt",
-                                    gender=="K"~"Kvinnor",
-                                    gender=="M"~"Män",
-                                    TRUE~gender)) %>% 
-  # Byt namn på variabler som passar BRP Excelark
-  select(Ar = year, 
-         Kon = gender, 
-         Varde = standard_value, 
-         Indikator_name = kpi_text,
-         Tema, 
-         Aspekt,
-         Del,
-         kpi, 
-         Omrade_typ = municipality_type, 
-         Region,
-         Kon_ford, 
-         Log, 
-         Lagar, 
-         Maxar, 
-         Omvand_skala
-         ) %>% 
-    
-  ### Filtrera på kommun/län
-  #filter(Omrade_typ == kommun_eller_lan)  %>% 
-
-  ### Ordna kolumnerna på samma sätt som i excelarket där det ska klistras in
-  relocate(Indikator_name, Number=kpi, Region, Kon, Ar, Varde, 
-           Del, Tema, Aspekt, 
+                              gender=="K"~"Kvinnor",
+                              gender=="M"~"Män",
+                              TRUE~gender)) %>% 
+    # Byt namn på variabler som passar BRP Excelark
+    select(Ar = year, 
+           Kon = gender, 
+           Varde = standard_value, 
+           Indikator_name = kpi_text,
+           Tema, 
+           Aspekt,
+           Del,
+           kpi, 
+           Omrade_typ = municipality_type, 
+           Region,
            Kon_ford, 
-           Maxar, Lagar, 
            Log, 
-           Omvand_skala,
-           Omrade_typ) %>% 
-  
-  arrange(Indikator_name, Region, Kon, Ar) %>%   
-
-  # Export till csv (sep=";"), Använd write.csv2 för option fileEncoding
-  # write.csv2(file=filnamnet, fileEncoding="ISO-8859-1", row.names=FALSE)
-  writexl::write_xlsx(filnamnet)
+           Lagar, 
+           Maxar, 
+           Omvand_skala
+    ) %>% 
+    
+    ### Filtrera på kommun/län
+    #filter(Omrade_typ == kommun_eller_lan)  %>% 
+    
+    ### Ordna kolumnerna på samma sätt som i excelarket där det ska klistras in
+    relocate(Indikator_name, Number=kpi, Region, Kon, Ar, Varde, 
+             Del, Tema, Aspekt, 
+             Kon_ford, 
+             Maxar, Lagar, 
+             Log, 
+             Omvand_skala,
+             Omrade_typ) %>% 
+    
+    arrange(Indikator_name, Region, Kon, Ar) %>%   
+    
+    # Export till csv (sep=";"), Använd write.csv2 för option fileEncoding
+    # write.csv2(file=filnamnet, fileEncoding="ISO-8859-1", row.names=FALSE)
+    writexl::write_xlsx(filnamnet)
 }
 
-brpplus_data %>% filter(is.na(gender))
-brpplus_data <- brpplus_data %>% mutate(municipality_type = if_else(is.na(municipality_type) & municipality=="Riket", 
-                                   "L", municipality_type))
+brpplus_stand_maxmin %>% filter(is.na(gender))
+brpplus_stand_maxmin <- brpplus_stand_maxmin %>% mutate(municipality_type = if_else(is.na(municipality_type) & municipality=="Riket", 
+                                                                                    "L", municipality_type))
 
-brpplus_data %>% exportera_brpplusdata("brpplus_resultat.xlsx")
+brpplus_stand_maxmin %>% exportera_brpplusdata("brpplus_resultat.xlsx")
 
 ### Exportera län
-# brpplus_data %>% export_data_lan_kommun("L","brp_plus dataunderlag_region.csv")
+# brpplus_stand_maxmin %>% export_data_lan_kommun("L","brp_plus dataunderlag_region.csv")
 ### Exportera kommun
-#brpplus_data %>% export_data_lan_kommun("K","brp_plus dataunderlag_kommun.csv")
-  
-  
-  
+# brpplus_stand_maxmin %>% export_data_lan_kommun("K","brp_plus dataunderlag_kommun.csv")
+
+
+
 ################################################################################
 ## kontrollera lite data
 ################################################################################
