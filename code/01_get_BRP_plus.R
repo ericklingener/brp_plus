@@ -47,22 +47,16 @@ rm(dat, raw_name)
 
 # ####
 
-# 1. Hämta hem data från Kolada ####
-# Hämta metadata, däribland vilka vilka KPI som ska hämtas från Kolada
-# OBS: Namnändringarna och tabellstrukturerna enbart görs för att koden ska kunna köras utan att ändra namnen senare i koden -- detta ska ändras
-metadata_kpi <- start_BRP_plus_indikatorer_tbl %>%
-  rename(kpi = Indikator_ID, kpi_text = Indikator_namn) %>% 
-  drop_na(kpi)
+# 1. Hämta hem nycklar för geografi från startfilerna ####
 
-# Hämta nycklar för geografi: 
 # OBS: Namnändringarna och tabellstrukturerna enbart görs för att koden ska kunna köras utan att ändra namnen senare i koden -- detta ska ändras
-# 1. nyckel för "region" och "län"
+# 1.1. nyckel för "region" och "län"
 region_lan_nyckel <- start_region_kodnyckel_tbl %>% 
   transmute(municipality_id = Lan_kod, 
             region_lan = Lan_Namn,
             municipality = Kolada_lan_namn) %>%
   select(municipality_id, region_lan, municipality)
-# 2. nyckel för municipality_id 
+# 1.2. nyckel för municipality_id 
 municipality_id_nyckel <- bind_rows(
   start_kommun_kodnyckel_tbl %>% distinct(Lan_kod_S, Lan_Namn) %>% transmute(m_id_text = Lan_kod_S, 
                                                                              municipality = Lan_Namn),
@@ -71,65 +65,74 @@ municipality_id_nyckel <- bind_rows(
 ) %>% 
   arrange(m_id_text)
 
+# 2. Hämta hem data från Kolada ####
+# Hämta metadata, däribland vilka vilka KPIer som ska hämtas från Kolada
+# OBS: Namnändringarna och tabellstrukturerna görs enbart för att koden ska kunna köras utan att ändra namnen senare i koden -- detta ska ändras
+metadata_kpi <- start_BRP_plus_indikatorer_tbl %>%
+  rename(kpi = Indikator_ID, kpi_text = Indikator_namn) %>% 
+  drop_na(kpi)
 
-
-# Hämta data från Kolada (med progress bar) 
-# Skapa lista
+# Hämta data från Kolada -- med progress bar genom pblapply() 
+# Förbered genom att skapa lista
 kpi_list <- metadata_kpi %>%
   distinct(kpi) %>%
   pull()
 
-names(kpi_list) <- kpi_list   # each list element now carries its KPI name
+# Förbered så att varje tibble har KPI-namn
+names(kpi_list) <- kpi_list   
 
+# Skapa och kör loopen som hämtar data från Kolada genom rKolada
 result_list_raw <- pblapply(kpi_list, function(.x) {
-  # wrap each iteration in tryCatch so one failing KPI won't stop the whole run
-  tryCatch({
-    message("KPI: ", .x)
+    tryCatch({   # Använd tryCatch för att loopen ska fortsätta trots att en KPI inte kan hämtas
+      message("KPI: ", .x)
+      
+      temp_df <- rKolada::get_values(kpi = .x,           # Nyckltal i rKolada / API:et refereras som "KPI"
+                                     period = 1990:2025, # Tidperioden som data hämtas hem
+                                     verbose = FALSE)    # Skriv inte ut detaljer i loggen (pblapply används istället)
+      
+      # Om loopen kör en KPI som returnerar NULL eller ett tomt tibble så hoppar loopen över KPIn
+      if (is.null(temp_df) || (is.data.frame(temp_df) && nrow(temp_df) == 0)) {
+        message("  -> No data for ", .x)
+        return(tibble())   # Tack vare denna behåller pblapply namnet på KPIn (och loggar den senare i loopen)
+      }
+      
+      # Filtrerar fram län och kommuner
+      temp_df <- temp_df %>%
+        filter(municipality_type %in% c("L", "K"))
+      
+      # Skapa 'endyear' och 'startyear' (bara från non-missing värden)
+      endyear <- temp_df %>% drop_na(value) %>% pull(year) %>% max()
+      startyear <- temp_df %>% drop_na(value) %>% pull(year) %>% unique() %>% tail(6) %>% head(1)
+      
+      # Hämtar alla könsvärden i temp_df som inte är NA och tar unika värden.
+      # Kontrollerar sedan om både "M" och "K" förekommer bland dessa kön.
+      # Om båda finns (summa = 2) sätts kon_ford till 1, annars till 0.
+      genders <- temp_df$gender %>% na.omit() %>% unique()
+      kon_ford <- ifelse(sum(str_detect(genders, "M|K")) == 2, 1, 0)
+      
+      temp_df %>%
+        mutate(Lagar = startyear,
+               Maxar = endyear,
+               year = as.character(year),
+               Kon_ford = kon_ford) %>%
+        relocate(municipality, municipality_id, kpi, gender, year) %>%
+        ungroup()
+    }, 
     
-    temp_df <- rKolada::get_values(kpi = .x,           # Nyckltal i rKolada / API:et refereras som "KPI"
-                                   period = 1990:2025, # Tidperioden som data hämtas hem
-                                   verbose = FALSE)    # Skriv inte ut detaljer i loggen (pblapply används istället)
-    
-    # If the query returned NULL or an empty table, skip this KPI cleanly
-    if (is.null(temp_df) || (is.data.frame(temp_df) && nrow(temp_df) == 0)) {
-      message("  -> No data for ", .x)
-      return(tibble())   # empty tibble, pblapply will keep list element
-    }
-    
-    # proceed with cleaning/processing
-    temp_df <- temp_df %>%
-      filter(municipality_type %in% c("L", "K"))
-    
-    # compute start & end years safely (only from non-missing values)
-    endyear <- temp_df %>% drop_na(value) %>% pull(year) %>% max()
-    startyear <- temp_df %>% drop_na(value) %>% pull(year) %>% unique() %>% tail(6) %>% head(1)
-    
-    # safer gender detection (avoid referencing temp_df$gender inside mutate)
-    genders <- temp_df$gender %>% na.omit() %>% unique()
-    kon_ford <- ifelse(sum(str_detect(genders, "M|K")) == 2, 1, 0)
-    
-    temp_df %>%
-      mutate(Lagar = startyear,
-             Maxar = endyear,
-             year = as.character(year),
-             Kon_ford = kon_ford) %>%
-      relocate(municipality, municipality_id, kpi, gender, year) %>%
-      ungroup()
-  }, error = function(e) {
-    # on error, log and return empty tibble so overall process continues
-    message("  -> ERROR for ", .x, " : ", conditionMessage(e))
-    return(tibble())
-  })
-}, 
-cl = NULL)   # cl=NULL makes it run sequentially; remove or set to a cluster if parallel
+    # Om det blir error kommer den tomma tibblen registreras i tibblen och fortsätt processen
+    error = function(e) {
+      message("  -> ERROR for ", .x, " : ", conditionMessage(e))
+      return(tibble())
+    })
+  }, 
+cl = NULL) # Specificera att funktionen körs sekventiellt, inte parallellt 
 
-
-# Check if there are any empty KPIs (if they have names)
+# Undersök om det finns tomma KPIer
 empty_kpis <- names(result_list_raw)[vapply(result_list_raw, nrow, integer(1)) == 0]
-length(empty_kpis)  # how many
-empty_kpis         # list of KPIs with no rows
+length(empty_kpis)  # Hur många
+empty_kpis         # Lista alla KPIer utan data
 
-# Drop them by name
+# Ta bort de tomma KPIerna 
 result_list_clean <- result_list_raw[!names(result_list_raw) %in% empty_kpis]
 
 # Sätt ihop listan av tibbles med data till en stor dataframe
@@ -137,12 +140,7 @@ result_list_clean <- result_list_raw[!names(result_list_raw) %in% empty_kpis]
 # Resten av koden bör dock justeras så att man kan använda köra BRP_plus_data_base (skapas nedan)
 brpplus_data_raw <- bind_rows(result_list_clean) 
 
-# Sätt ihop listan av tibbles med data till en stor dataframe och lägg till kolumn "Datum_hamtad"
-#BRP_plus_data_base <- bind_rows(result_list_clean) %>%
-#                     mutate(Datum_hamtad = format(Sys.Date(), "%Y-%m-%d")) 
-
-# ####
-
+# Kontrollera hur många KPIer som finns i den färdiga tabellen
 brpplus_data_raw %>% drop_na %>% select(kpi) %>% unique %>% pull %>% sort %>% length
 
 # ####
