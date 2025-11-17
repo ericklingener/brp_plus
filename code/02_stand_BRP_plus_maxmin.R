@@ -141,9 +141,15 @@ exportera_brpplusdata <- function(obj,
     writexl::write_xlsx(filnamnet)
 }
 
-brpplus_stand_maxmin %>% filter(is.na(gender))
-brpplus_stand_maxmin <- brpplus_stand_maxmin %>% mutate(municipality_type = if_else(is.na(municipality_type) & municipality=="Riket", 
-                                                                                    "L", municipality_type))
+
+# Oklart varför detta steg görs...
+  # Filtrerar fram alla rader där kön saknas (gender = NA)
+  brpplus_stand_maxmin %>% filter(is.na(gender)) 
+  # Ersätt värdet i municipality_type med "L" för de rader där
+  # municipality_type är NA *och* municipality är "Riket"; 
+  # annars behålls det ursprungliga värdet.
+  brpplus_stand_maxmin <- brpplus_stand_maxmin %>% mutate(municipality_type = if_else(is.na(municipality_type) & municipality=="Riket", 
+                                                                                      "L", municipality_type))
 
 brpplus_stand_maxmin %>% exportera_brpplusdata("brpplus_resultat.xlsx")
 
